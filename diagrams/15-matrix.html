@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>IW Diagram — Matrix 2×2</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <script defer src="../lib/iw-interact.js"></script>
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Layout: header arriba + body con matrix centrada y ejes alrededor */
+    .mx-slide {
+      height: 100%;
+      padding: 90px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 56px;
+    }
+    .mx-slide__header {
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .mx-slide__eyebrow { margin: 0 0 24px 0; }
+    .mx-slide__title   { text-align: center; margin: 0 0 24px 0; font-size: 60px; }
+    .mx-slide__sub     { font-size: 24px; max-width: 1000px; margin: 0 auto; }
+
+    /* Body: grid 3×3 → matrix en centro, 4 labels de ejes alrededor */
+    .mx-body {
+      display: grid;
+      grid-template-columns: auto 680px auto;
+      grid-template-rows: auto 560px auto;
+      gap: 22px;
+      justify-content: center;
+      align-content: center;
+    }
+    .mx-label {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 17px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--iw-primary);
+      white-space: nowrap;
+    }
+    .mx-label--top    { grid-column: 2; grid-row: 1; text-align: center; }
+    .mx-label--bottom { grid-column: 2; grid-row: 3; text-align: center; color: var(--iw-ink-muted); }
+    .mx-label--left   { grid-column: 1; grid-row: 2; align-self: center; text-align: right; color: var(--iw-ink-muted); }
+    .mx-label--right  { grid-column: 3; grid-row: 2; align-self: center; text-align: left; }
+
+    /* Matrix grid 2×2 */
+    .mx-grid {
+      grid-column: 2;
+      grid-row: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 14px;
+    }
+
+    /* Celda: padding generoso + texto + transitions */
+    .mx-cell {
+      border-radius: var(--iw-radius-cardLg);
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 10px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+      cursor: default;
+      min-height: 0;
+    }
+    .mx-cell:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--iw-shadow-md);
+    }
+
+    /* Cromática diagonal: peor abajo-izq → mejor arriba-der */
+    .mx-cell--tl { background: #A8C3F5; }                                     /* alto foco · bajo sistema */
+    .mx-cell--tr { background: var(--iw-primary); color: var(--iw-on-dark); } /* alto · alto = clímax */
+    .mx-cell--bl { background: #D7E4FF; }                                     /* bajo · bajo = peor */
+    .mx-cell--br { background: #A8C3F5; }                                     /* bajo foco · alto sistema */
+
+    .mx-cell__num {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--iw-primary);
+      margin: 0;
+    }
+    .mx-cell--tr .mx-cell__num { color: rgba(255, 255, 255, 0.85); }
+
+    .mx-cell__title {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 28px;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--iw-dark);
+      margin: 0;
+    }
+    .mx-cell--tr .mx-cell__title { color: var(--iw-on-dark); }
+
+    .mx-cell__desc {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 1.5;
+      color: var(--iw-ink-soft);
+      margin: 0;
+    }
+    .mx-cell--tr .mx-cell__desc { color: rgba(255, 255, 255, 0.88); }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="mx-slide" data-iw-diagram>
+
+      <header class="mx-slide__header">
+        <p class="iw-eyebrow mx-slide__eyebrow">Diagnóstico</p>
+        <h1 class="iw-h1 mx-slide__title">Dónde estás según <span class="iw-hl">foco y sistema</span></h1>
+        <p class="iw-diagram-sub mx-slide__sub">Cuatro estados posibles. Solo uno te lleva a maestría sostenible.</p>
+      </header>
+
+      <div class="mx-body">
+
+        <div class="mx-label mx-label--top">Foco alto</div>
+        <div class="mx-label mx-label--left">Sin sistema</div>
+        <div class="mx-label mx-label--right">Sistema alto</div>
+        <div class="mx-label mx-label--bottom">Foco bajo</div>
+
+        <div class="mx-grid" data-iw-stagger>
+
+          <!-- TL: alto foco, bajo sistema -->
+          <article class="mx-cell mx-cell--tl">
+            <p class="mx-cell__num">Cuadrante 02</p>
+            <h3 class="mx-cell__title">Esfuerzo manual</h3>
+            <p class="mx-cell__desc">Sabes qué hacer, pero todo depende de tu energía diaria.</p>
+          </article>
+
+          <!-- TR: alto foco, alto sistema → clímax -->
+          <article class="mx-cell mx-cell--tr">
+            <p class="mx-cell__num">Cuadrante 01</p>
+            <h3 class="mx-cell__title">Maestría</h3>
+            <p class="mx-cell__desc">Dirección clara + procesos que sostienen el ritmo sin ti.</p>
+          </article>
+
+          <!-- BL: bajo foco, bajo sistema → peor -->
+          <article class="mx-cell mx-cell--bl">
+            <p class="mx-cell__num">Cuadrante 03</p>
+            <h3 class="mx-cell__title">Caos</h3>
+            <p class="mx-cell__desc">Trabajas mucho sin saber qué mueve realmente la aguja.</p>
+          </article>
+
+          <!-- BR: bajo foco, alto sistema -->
+          <article class="mx-cell mx-cell--br">
+            <p class="mx-cell__num">Cuadrante 04</p>
+            <h3 class="mx-cell__title">Automatización vacía</h3>
+            <p class="mx-cell__desc">Los procesos corren, pero no sabes qué priorizar.</p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>IW Diagram — Triggers</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <script defer src="../lib/iw-interact.js"></script>
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .tg-slide {
+      height: 100%;
+      padding: 90px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 56px;
+    }
+    .tg-slide__header {
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .tg-slide__eyebrow { margin: 0 0 24px 0; }
+    .tg-slide__title   { text-align: center; margin: 0 0 24px 0; font-size: 60px; }
+    .tg-slide__sub     { font-size: 24px; max-width: 1000px; margin: 0 auto; }
+
+    /* Grid 3 filas × 3 cols (trigger | flecha | outcome) */
+    .tg-grid {
+      display: grid;
+      grid-template-columns: 1fr 96px 1fr;
+      gap: 24px 24px;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+
+    /* Card base */
+    .tg-card {
+      background: rgba(215, 228, 255, 0.45);
+      border-radius: var(--iw-radius-cardLg);
+      padding: 28px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      cursor: pointer;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .tg-card:hover { transform: translateY(-4px); }
+    [data-iw-diagram].iw-has-active .tg-card:not(.is-active) {
+      opacity: 0.22 !important;
+    }
+
+    .tg-card__kicker {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--iw-primary);
+      margin: 0;
+    }
+    .tg-card--outcome .tg-card__kicker { color: var(--iw-ink-muted); }
+    .tg-card__title {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 26px;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--iw-dark);
+      margin: 0;
+    }
+    .tg-card__desc {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 1.45;
+      color: var(--iw-ink-soft);
+      margin: 4px 0 0 0;
+    }
+
+    /* Flecha SVG entre trigger y outcome */
+    .tg-arrow {
+      display: grid;
+      place-items: center;
+    }
+    .tg-arrow svg {
+      width: 64px;
+      height: 32px;
+    }
+    .tg-arrow line,
+    .tg-arrow polyline {
+      stroke: var(--iw-primary);
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="tg-slide" data-iw-diagram>
+
+      <header class="tg-slide__header">
+        <p class="iw-eyebrow tg-slide__eyebrow">Causa y efecto</p>
+        <h1 class="iw-h1 tg-slide__title">Lo que cambia <span class="iw-hl">cuando aplicas el método</span></h1>
+        <p class="iw-diagram-sub tg-slide__sub">Cada decisión correcta produce una consecuencia que sostiene el negocio.</p>
+      </header>
+
+      <div class="tg-grid" data-iw-stagger>
+
+        <!-- Fila 1 -->
+        <article class="tg-card tg-card--trigger" data-iw-target="tg-1">
+          <p class="tg-card__kicker">Si…</p>
+          <h3 class="tg-card__title">Defines tu cliente ideal</h3>
+          <p class="tg-card__desc">Sabes exactamente a quién te diriges y qué problema resuelves.</p>
+        </article>
+        <div class="tg-arrow">
+          <svg viewBox="0 0 64 32" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <line x1="6" y1="16" x2="54" y2="16"/>
+            <polyline points="44 7, 56 16, 44 25"/>
+          </svg>
+        </div>
+        <article class="tg-card tg-card--outcome" data-iw-target="tg-1">
+          <p class="tg-card__kicker">Entonces</p>
+          <h3 class="tg-card__title">Atraes solo a los correctos</h3>
+          <p class="tg-card__desc">No malgastas energía en personas que nunca iban a comprar.</p>
+        </article>
+
+        <!-- Fila 2 -->
+        <article class="tg-card tg-card--trigger" data-iw-target="tg-2">
+          <p class="tg-card__kicker">Si…</p>
+          <h3 class="tg-card__title">Diseñas tu oferta con criterio</h3>
+          <p class="tg-card__desc">El producto resuelve algo concreto y valioso para tu cliente.</p>
+        </article>
+        <div class="tg-arrow">
+          <svg viewBox="0 0 64 32" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <line x1="6" y1="16" x2="54" y2="16"/>
+            <polyline points="44 7, 56 16, 44 25"/>
+          </svg>
+        </div>
+        <article class="tg-card tg-card--outcome" data-iw-target="tg-2">
+          <p class="tg-card__kicker">Entonces</p>
+          <h3 class="tg-card__title">Vendes sin competir por precio</h3>
+          <p class="tg-card__desc">El valor percibido sostiene el precio sin descuentos ni presión.</p>
+        </article>
+
+        <!-- Fila 3 -->
+        <article class="tg-card tg-card--trigger" data-iw-target="tg-3">
+          <p class="tg-card__kicker">Si…</p>
+          <h3 class="tg-card__title">Comunicas con claridad</h3>
+          <p class="tg-card__desc">El mensaje llega sin ruido a quien necesita escucharlo.</p>
+        </article>
+        <div class="tg-arrow">
+          <svg viewBox="0 0 64 32" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <line x1="6" y1="16" x2="54" y2="16"/>
+            <polyline points="44 7, 56 16, 44 25"/>
+          </svg>
+        </div>
+        <article class="tg-card tg-card--outcome" data-iw-target="tg-3">
+          <p class="tg-card__kicker">Entonces</p>
+          <h3 class="tg-card__title">No necesitas convencer</h3>
+          <p class="tg-card__desc">Tu cliente llega entendiendo el valor antes de hablar contigo.</p>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

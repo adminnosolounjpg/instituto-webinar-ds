@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>IW Diagram — Hero statement (fondo brand)</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <style>
+    /* Fondo brand alternativo — para slides que deben destacar */
+    .slide-bg-dark {
+      background-image: url('../assets/bg/fondos-12.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hs-slide {
+      height: 100%;
+      padding: 140px 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 36px;
+    }
+
+    /* Eyebrow blanco con alpha — todo en mono blanco siguiendo la regla brand */
+    .hs-eyebrow {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 20px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.75);
+      margin: 0;
+    }
+
+    /* Marca decorativa: un símbolo arriba (línea sutil) para anclar visualmente */
+    .hs-mark {
+      width: 64px;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.7);
+      margin: 0 auto 6px;
+    }
+
+    /* Título XXL hero — el centro absoluto del slide */
+    .hs-title {
+      font-family: var(--iw-font);
+      font-weight: 900;
+      font-size: 108px;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      color: #FFFFFF;
+      margin: 0;
+      max-width: 1400px;
+    }
+    /* Highlight de palabras clave: alpha en lugar de color brand (no contrasta con fondo) */
+    .hs-title em {
+      font-style: normal;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Sub debajo del título */
+    .hs-sub {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 1.45;
+      color: rgba(255, 255, 255, 0.85);
+      margin: 0;
+      max-width: 1100px;
+    }
+
+    /* Comillas decorativas grandes (opcional) — refuerzan el peso editorial */
+    .hs-quote {
+      font-family: var(--iw-font);
+      font-weight: 900;
+      font-size: 140px;
+      line-height: 0.5;
+      color: rgba(255, 255, 255, 0.25);
+      margin: 0 0 -40px 0;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg-dark">
+
+    <div class="hs-slide">
+
+      <p class="hs-quote">"</p>
+      <p class="hs-eyebrow">El método</p>
+      <h1 class="hs-title">Esto no es <em>una moda pasajera.</em> Es maestría.</h1>
+      <p class="hs-sub">Ocho años aplicando el mismo sistema. Sin saltar de estrategia en estrategia siguiendo lo que está de moda.</p>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>IW Diagram — H timeline</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <script defer src="../lib/iw-interact.js"></script>
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .ht-slide {
+      height: 100%;
+      padding: 100px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 80px;
+    }
+    .ht-slide__header {
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .ht-slide__eyebrow { margin: 0 0 24px 0; }
+    .ht-slide__title   { text-align: center; margin: 0 0 24px 0; font-size: 60px; }
+    .ht-slide__sub     { font-size: 24px; max-width: 1000px; margin: 0 auto; }
+
+    .ht-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 36px;
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    /* SVG timeline horizontal — ancho idéntico al grid de labels para alinear */
+    .ht-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .ht-svg__line {
+      stroke: var(--iw-dark);
+      stroke-width: 2;
+      stroke-dasharray: 6 8;
+      stroke-linecap: round;
+      opacity: 0.5;
+    }
+    .ht-svg__group { transition: opacity 0.25s ease; cursor: pointer; }
+    .ht-svg__circle {
+      stroke: var(--iw-dark);
+      stroke-width: 2;
+    }
+    .ht-svg__icon path,
+    .ht-svg__icon circle,
+    .ht-svg__icon line,
+    .ht-svg__icon polyline,
+    .ht-svg__icon polygon {
+      stroke-width: 1.9;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .ht-svg__icon { pointer-events: none; }
+    [data-iw-diagram].iw-has-active .ht-svg__group.is-dimmed { opacity: 0.22; }
+    [data-iw-diagram].iw-has-active .ht-svg__group.is-active { opacity: 1; }
+
+    /* Labels en grid 4 cols sin gap (gap rompía la alineación con los puntos SVG).
+       La respiración entre labels viene del padding interno de cada una. */
+    .ht-labels {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      width: 100%;
+      align-items: start;
+    }
+    .ht-label {
+      text-align: center;
+      padding: 0 28px;
+      cursor: pointer;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .ht-label.is-active,
+    .ht-label:hover { transform: translateY(-3px); }
+    /* Cuando hay un activo, todo lo que NO sea el activo se atenúa.
+       Se fuerza !important para vencer cualquier transición/transform que pueda interferir
+       con la opacidad heredada en algunos navegadores. */
+    [data-iw-diagram].iw-has-active .ht-label:not(.is-active),
+    [data-iw-diagram].iw-has-active .ht-label.is-dimmed {
+      opacity: 0.22 !important;
+    }
+    [data-iw-diagram].iw-has-active .ht-svg__group:not(.is-active) {
+      opacity: 0.22;
+    }
+    .ht-label__year {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 28px;
+      letter-spacing: -0.01em;
+      color: var(--iw-primary);
+      margin: 0 0 6px 0;
+    }
+    .ht-label__num {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--iw-ink-muted);
+      margin: 0 0 8px 0;
+    }
+    .ht-label__title {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 24px;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--iw-dark);
+      margin: 0 0 8px 0;
+    }
+    .ht-label__desc {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 1.45;
+      color: var(--iw-ink-soft);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="ht-slide" data-iw-diagram>
+
+      <header class="ht-slide__header">
+        <p class="iw-eyebrow ht-slide__eyebrow">Recorrido</p>
+        <h1 class="iw-h1 ht-slide__title">Ocho años construyendo <span class="iw-hl">el método</span></h1>
+        <p class="iw-diagram-sub ht-slide__sub">No es una moda. Es lo que llevamos aplicando y refinando desde 2016.</p>
+      </header>
+
+      <div class="ht-body">
+
+        <!-- SVG timeline horizontal -->
+        <svg class="ht-svg" viewBox="0 0 1400 120" xmlns="http://www.w3.org/2000/svg" fill="none">
+
+          <!-- Línea dashed central -->
+          <line class="ht-svg__line" x1="80" y1="60" x2="1320" y2="60"/>
+
+          <!-- Hito 1 — Inicio (lavanda claro) -->
+          <g class="ht-svg__group" data-iw-segment="ht-1">
+            <circle class="ht-svg__circle" cx="175" cy="60" r="38" fill="#D7E4FF"/>
+            <g class="ht-svg__icon" transform="translate(157,42) scale(1.5)" stroke="#3475EF">
+              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+              <line x1="4" y1="22" x2="4" y2="15"/>
+            </g>
+          </g>
+
+          <!-- Hito 2 — Estable (medio lavanda) -->
+          <g class="ht-svg__group" data-iw-segment="ht-2">
+            <circle class="ht-svg__circle" cx="525" cy="60" r="38" fill="#A8C3F5"/>
+            <g class="ht-svg__icon" transform="translate(507,42) scale(1.5)" stroke="#3475EF">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </g>
+          </g>
+
+          <!-- Hito 3 — Escala (medio oscuro) -->
+          <g class="ht-svg__group" data-iw-segment="ht-3">
+            <circle class="ht-svg__circle" cx="875" cy="60" r="38" fill="#6E9DEC"/>
+            <g class="ht-svg__icon" transform="translate(857,42) scale(1.5)" stroke="#FFFFFF">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+              <polyline points="16 7 22 7 22 13"/>
+            </g>
+          </g>
+
+          <!-- Hito 4 — Maestría (brand puro = icono blanco) -->
+          <g class="ht-svg__group" data-iw-segment="ht-4">
+            <circle class="ht-svg__circle" cx="1225" cy="60" r="38" fill="#3475EF"/>
+            <g class="ht-svg__icon" transform="translate(1207,42) scale(1.5)" stroke="#FFFFFF">
+              <circle cx="12" cy="8" r="6"/>
+              <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+            </g>
+          </g>
+
+        </svg>
+
+        <!-- Labels debajo, alineados con los puntos -->
+        <div class="ht-labels" data-iw-stagger>
+
+          <article class="ht-label" data-iw-target="ht-1">
+            <p class="ht-label__year">2016</p>
+<h3 class="ht-label__title">Inicio</h3>
+            <p class="ht-label__desc">Empezamos a estructurar el método tras años de probar lo que no funcionaba.</p>
+          </article>
+
+          <article class="ht-label" data-iw-target="ht-2">
+            <p class="ht-label__year">2018</p>
+<h3 class="ht-label__title">Sistema estable</h3>
+            <p class="ht-label__desc">El método empieza a dar resultados predecibles con los primeros alumnos.</p>
+          </article>
+
+          <article class="ht-label" data-iw-target="ht-3">
+            <p class="ht-label__year">2021</p>
+<h3 class="ht-label__title">Escala</h3>
+            <p class="ht-label__desc">Superamos los 80 millones generados en campañas para clientes y alumnos.</p>
+          </article>
+
+          <article class="ht-label" data-iw-target="ht-4">
+            <p class="ht-label__year">2024</p>
+<h3 class="ht-label__title">Maestría</h3>
+            <p class="ht-label__desc">Ocho años de iteración nos dan criterio que no se aprende en un curso.</p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

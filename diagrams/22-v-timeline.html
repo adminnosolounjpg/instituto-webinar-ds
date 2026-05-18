@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>IW Diagram — V timeline</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <script defer src="../lib/iw-interact.js"></script>
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .vt-slide {
+      height: 100%;
+      padding: 80px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 48px;
+    }
+    .vt-slide__header {
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .vt-slide__eyebrow { margin: 0 0 24px 0; }
+    .vt-slide__title   { text-align: center; margin: 0 0 24px 0; font-size: 58px; }
+    .vt-slide__sub     { font-size: 23px; max-width: 1000px; margin: 0 auto; }
+
+    /* Lista vertical centrada en el slide */
+    .vt-list {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    /* Línea vertical dashed que conecta los 4 nodos */
+    .vt-list::before {
+      content: '';
+      position: absolute;
+      left: 47px;
+      top: 47px;
+      bottom: 47px;
+      width: 2px;
+      background-image: linear-gradient(to bottom, var(--iw-dark) 50%, transparent 50%);
+      background-size: 2px 14px;
+      opacity: 0.45;
+      z-index: 0;
+    }
+
+    .vt-item {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 32px;
+      align-items: center;
+      cursor: pointer;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      position: relative;
+      z-index: 1;
+    }
+    .vt-item.is-active,
+    .vt-item:hover { transform: translateX(8px); }
+
+    [data-iw-diagram].iw-has-active .vt-item:not(.is-active) {
+      opacity: 0.22 !important;
+    }
+
+    /* Círculo del nodo */
+    .vt-item__node {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      border: 2px solid var(--iw-dark);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      background: #D7E4FF;
+    }
+    .vt-item__node svg {
+      width: 42px;
+      height: 42px;
+      stroke-width: 1.9;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke: var(--iw-primary);
+    }
+
+    /* Gradiente progresivo + iconos blancos sobre tonos oscuros */
+    .vt-item:nth-child(1) .vt-item__node { background: #D7E4FF; }
+    .vt-item:nth-child(2) .vt-item__node { background: #A8C3F5; }
+    .vt-item:nth-child(3) .vt-item__node { background: #6E9DEC; }
+    .vt-item:nth-child(3) .vt-item__node svg { stroke: #FFFFFF; }
+    .vt-item:nth-child(4) .vt-item__node { background: var(--iw-primary); }
+    .vt-item:nth-child(4) .vt-item__node svg { stroke: #FFFFFF; }
+
+    /* Contenido a la derecha del nodo */
+    .vt-item__content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .vt-item__year {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 26px;
+      letter-spacing: -0.01em;
+      color: var(--iw-primary);
+      margin: 0;
+    }
+    .vt-item__title {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 30px;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--iw-dark);
+      margin: 0;
+    }
+    .vt-item__desc {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--iw-ink-soft);
+      margin: 6px 0 0 0;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="vt-slide" data-iw-diagram>
+
+      <header class="vt-slide__header">
+        <p class="iw-eyebrow vt-slide__eyebrow">Crecimiento</p>
+        <h1 class="iw-h1 vt-slide__title">Cómo evoluciona <span class="iw-hl">un negocio que escala</span></h1>
+        <p class="iw-diagram-sub vt-slide__sub">Cuatro hitos secuenciales. Cada uno se sostiene en el anterior.</p>
+      </header>
+
+      <div class="vt-list">
+
+        <article class="vt-item" data-iw-target="vt-1">
+          <div class="vt-item__node">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+              <line x1="4" y1="22" x2="4" y2="15"/>
+            </svg>
+          </div>
+          <div class="vt-item__content">
+            <p class="vt-item__year">2016</p>
+            <h3 class="vt-item__title">Inicio</h3>
+            <p class="vt-item__desc">Empezamos a estructurar el método tras años probando lo que no funcionaba.</p>
+          </div>
+        </article>
+
+        <article class="vt-item" data-iw-target="vt-2">
+          <div class="vt-item__node">
+            <svg viewBox="0 0 24 24">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <div class="vt-item__content">
+            <p class="vt-item__year">2018</p>
+            <h3 class="vt-item__title">Sistema estable</h3>
+            <p class="vt-item__desc">El método empieza a dar resultados predecibles con los primeros alumnos del programa.</p>
+          </div>
+        </article>
+
+        <article class="vt-item" data-iw-target="vt-3">
+          <div class="vt-item__node">
+            <svg viewBox="0 0 24 24">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+              <polyline points="16 7 22 7 22 13"/>
+            </svg>
+          </div>
+          <div class="vt-item__content">
+            <p class="vt-item__year">2021</p>
+            <h3 class="vt-item__title">Escala</h3>
+            <p class="vt-item__desc">Superamos los 80 millones generados en campañas para clientes y alumnos.</p>
+          </div>
+        </article>
+
+        <article class="vt-item" data-iw-target="vt-4">
+          <div class="vt-item__node">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="6"/>
+              <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+            </svg>
+          </div>
+          <div class="vt-item__content">
+            <p class="vt-item__year">2024</p>
+            <h3 class="vt-item__title">Maestría</h3>
+            <p class="vt-item__desc">Ocho años de iteración consistente que dan criterio que no se aprende en un curso.</p>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

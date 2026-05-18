@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>IW Diagram — Donut progress</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <script defer src="../lib/iw-interact.js"></script>
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .dp-slide {
+      height: 100%;
+      padding: 90px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 56px;
+    }
+    .dp-slide__header {
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .dp-slide__eyebrow { margin: 0 0 24px 0; }
+    .dp-slide__title   { text-align: center; margin: 0 0 24px 0; font-size: 60px; }
+    .dp-slide__sub     { font-size: 24px; max-width: 1000px; margin: 0 auto; }
+
+    .dp-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    /* SVG donut */
+    .dp-svg {
+      width: 100%;
+      max-width: 460px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .dp-svg__track {
+      stroke: #D7E4FF;
+      stroke-width: 42;
+      fill: none;
+    }
+    .dp-svg__progress {
+      stroke: var(--iw-primary);
+      stroke-width: 42;
+      fill: none;
+      stroke-linecap: round;
+      transform: rotate(-90deg);
+      transform-origin: 210px 210px;
+    }
+    .dp-svg__num {
+      font-family: var(--iw-font);
+      font-weight: 900;
+      font-size: 104px;
+      letter-spacing: -0.04em;
+      fill: var(--iw-dark);
+      text-anchor: middle;
+    }
+    .dp-svg__num tspan {
+      font-size: 50px;
+      font-weight: 700;
+      fill: var(--iw-primary);
+    }
+    .dp-svg__lbl {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.18em;
+      fill: var(--iw-primary);
+      text-anchor: middle;
+      text-transform: uppercase;
+    }
+
+    /* Detalle a la derecha */
+    .dp-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .dp-detail__kicker {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--iw-primary);
+      margin: 0;
+    }
+    .dp-detail__title {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 40px;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--iw-dark);
+      margin: 0 0 12px 0;
+    }
+    .dp-detail__desc {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 1.5;
+      color: var(--iw-ink-soft);
+      margin: 0 0 18px 0;
+    }
+    .dp-detail__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .dp-detail__list li {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 16px;
+      align-items: start;
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 1.5;
+      color: var(--iw-ink-soft);
+    }
+    .dp-detail__list li::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      margin-top: 10px;
+      border-radius: 50%;
+      background: var(--iw-primary);
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="dp-slide" data-iw-diagram>
+
+      <header class="dp-slide__header">
+        <p class="iw-eyebrow dp-slide__eyebrow">El dato</p>
+        <h1 class="iw-h1 dp-slide__title">8 de cada 10 alumnos <span class="iw-hl">vuelven a formarse</span></h1>
+        <p class="iw-diagram-sub dp-slide__sub">La consistencia del método se mide en confianza, no en promesas.</p>
+      </header>
+
+      <div class="dp-body">
+
+        <!-- Donut SVG -->
+        <svg class="dp-svg" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" fill="none">
+
+          <!-- Track (fondo lavanda) -->
+          <circle class="dp-svg__track" cx="210" cy="210" r="160"/>
+
+          <!-- Progress 80% — circumference = 2π·160 ≈ 1005, 80% = 804 -->
+          <circle class="dp-svg__progress" cx="210" cy="210" r="160"
+                  stroke-dasharray="804 1005"/>
+
+          <!-- Número grande centrado -->
+          <text class="dp-svg__num" x="210" y="220">80<tspan dy="-34">%</tspan></text>
+
+          <!-- Label debajo del número -->
+          <text class="dp-svg__lbl" x="210" y="262">de los alumnos</text>
+
+        </svg>
+
+        <!-- Detalle a la derecha -->
+        <div class="dp-detail">
+          <p class="dp-detail__kicker">Por qué importa</p>
+          <h3 class="dp-detail__title">No es marketing, es resultado</h3>
+          <p class="dp-detail__desc">La razón por la que vuelven no es la promesa, sino lo que han vivido aplicando el sistema.</p>
+          <ul class="dp-detail__list">
+            <li>El método sigue dándoles resultados año tras año</li>
+            <li>Cuando lanzan un nuevo negocio, ya saben qué hacer</li>
+            <li>Las recomendaciones internas mueven más alumnos que la publicidad pagada</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

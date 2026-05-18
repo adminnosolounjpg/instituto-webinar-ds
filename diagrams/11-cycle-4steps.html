@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>IW Diagram — Cycle 4 steps</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <script defer src="../lib/iw-interact.js"></script>
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Layout: header arriba + body 2 col (cycle SVG izq + lista der) */
+    .cy-slide {
+      height: 100%;
+      padding: 90px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 56px;
+    }
+    .cy-slide__header {
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .cy-slide__eyebrow { margin: 0 0 24px 0; }
+    .cy-slide__title   { text-align: center; margin: 0 0 24px 0; font-size: 60px; }
+    .cy-slide__sub     { font-size: 24px; max-width: 1000px; margin: 0 auto; }
+
+    .cy-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    /* SVG cycle */
+    .cy-svg {
+      width: 520px;
+      height: auto;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+    .cy-svg__arc {
+      fill: none;
+      stroke: var(--iw-dark);
+      stroke-width: 2;
+      opacity: 0.45;
+      stroke-linecap: round;
+    }
+    .cy-svg__node-bg {
+      stroke: var(--iw-dark);
+      stroke-width: 2;
+    }
+    .cy-svg__group {
+      transition: opacity 0.25s ease;
+      cursor: pointer;
+    }
+    [data-iw-diagram].iw-has-active .cy-svg__group.is-dimmed { opacity: 0.22; }
+    [data-iw-diagram].iw-has-active .cy-svg__group.is-active { opacity: 1; }
+
+    /* Lista derecha — separadores horizontales (mismo patrón que Pyramid) */
+    .cy-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .cy-item {
+      display: block;
+      padding: 24px 8px;
+      border-top: 1px solid rgba(19, 29, 45, 0.10);
+      cursor: pointer;
+      transition: background 0.25s ease, padding 0.25s ease;
+    }
+    .cy-item:first-child { border-top: 0; padding-top: 8px; }
+    .cy-item:last-child  { padding-bottom: 8px; }
+    .cy-item.is-active,
+    .cy-item:hover {
+      padding-left: 16px;
+    }
+    .cy-item__num {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--iw-primary);
+      margin: 0 0 6px 0;
+    }
+    .cy-item__title {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 28px;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--iw-dark);
+      margin: 0 0 6px 0;
+    }
+    .cy-item__desc {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--iw-ink-soft);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="cy-slide" data-iw-diagram>
+
+      <header class="cy-slide__header">
+        <p class="iw-eyebrow cy-slide__eyebrow">El método</p>
+        <h1 class="iw-h1 cy-slide__title">Cómo se construye <span class="iw-hl">un sistema que escala</span></h1>
+        <p class="iw-diagram-sub cy-slide__sub">Cuatro pasos que se retroalimentan. Cada uno alimenta al siguiente.</p>
+      </header>
+
+      <div class="cy-body">
+
+        <!-- Cycle SVG -->
+        <svg class="cy-svg" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" fill="none">
+
+          <defs>
+            <!-- Flecha chevron limpia, no triangular sólida -->
+            <marker id="cy-arrow"
+                    viewBox="0 0 10 10"
+                    refX="8" refY="5"
+                    markerWidth="7" markerHeight="7"
+                    orient="auto-start-reverse">
+              <path d="M 1 1 L 8 5 L 1 9" fill="none" stroke="#131D2D"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                    opacity="0.55"/>
+            </marker>
+          </defs>
+
+          <!-- 4 arcos curvos entre nodos (sentido horario) -->
+          <path class="cy-svg__arc" d="M 320 100 A 160 160 0 0 1 380 160" marker-end="url(#cy-arrow)"/>
+          <path class="cy-svg__arc" d="M 380 320 A 160 160 0 0 1 320 380" marker-end="url(#cy-arrow)"/>
+          <path class="cy-svg__arc" d="M 160 380 A 160 160 0 0 1 100 320" marker-end="url(#cy-arrow)"/>
+          <path class="cy-svg__arc" d="M 100 160 A 160 160 0 0 1 160 100" marker-end="url(#cy-arrow)"/>
+
+          <!-- Nodo 1 (Top): Define mercado — target icon -->
+          <g class="cy-svg__group" data-iw-segment="cy-1">
+            <circle class="cy-svg__node-bg" cx="240" cy="80" r="60" fill="#D7E4FF"/>
+            <g transform="translate(216,56) scale(2)">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="#3475EF" stroke-width="1" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="6"  fill="none" stroke="#3475EF" stroke-width="1" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="2"  fill="#3475EF" stroke="#3475EF" stroke-width="1"/>
+            </g>
+          </g>
+
+          <!-- Nodo 2 (Right): Diseña oferta — package icon -->
+          <g class="cy-svg__group" data-iw-segment="cy-2">
+            <circle class="cy-svg__node-bg" cx="400" cy="240" r="60" fill="#A8C3F5"/>
+            <g transform="translate(376,216) scale(2)">
+              <path d="M16.5 9.4 7.5 4.21" fill="none" stroke="#3475EF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" fill="none" stroke="#3475EF" stroke-width="1" stroke-linejoin="round"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96" fill="none" stroke="#3475EF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="12" y1="22.08" x2="12" y2="12" stroke="#3475EF" stroke-width="1" stroke-linecap="round"/>
+            </g>
+          </g>
+
+          <!-- Nodo 3 (Bottom): Comunica valor — megaphone icon -->
+          <g class="cy-svg__group" data-iw-segment="cy-3">
+            <circle class="cy-svg__node-bg" cx="240" cy="400" r="60" fill="#6E9DEC"/>
+            <g transform="translate(216,376) scale(2)">
+              <path d="m3 11 18-5v12L3 14v-3z" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+          </g>
+
+          <!-- Nodo 4 (Left): Automatiza y escala — refresh icon -->
+          <g class="cy-svg__group" data-iw-segment="cy-4">
+            <circle class="cy-svg__node-bg" cx="80" cy="240" r="60" fill="#3475EF"/>
+            <g transform="translate(56,216) scale(2)">
+              <path d="m17 2 4 4-4 4" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 11v-1a4 4 0 0 1 4-4h14" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="m7 22-4-4 4-4" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 13v1a4 4 0 0 1-4 4H3" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+          </g>
+
+        </svg>
+
+        <!-- Lista derecha conectada al SVG vía data-iw-target -->
+        <div class="cy-list" data-iw-stagger>
+
+          <article class="cy-item" data-iw-target="cy-1">
+            <p class="cy-item__num">Paso 01</p>
+            <h3 class="cy-item__title">Define tu mercado</h3>
+            <p class="cy-item__desc">A quién te diriges y qué problema resuelves. Sin esto, lo demás es ruido.</p>
+          </article>
+
+          <article class="cy-item" data-iw-target="cy-2">
+            <p class="cy-item__num">Paso 02</p>
+            <h3 class="cy-item__title">Diseña tu oferta</h3>
+            <p class="cy-item__desc">Lo que vendes y por qué tu cliente lo necesita, sin competir por precio.</p>
+          </article>
+
+          <article class="cy-item" data-iw-target="cy-3">
+            <p class="cy-item__num">Paso 03</p>
+            <h3 class="cy-item__title">Comunica el valor</h3>
+            <p class="cy-item__desc">Cómo lo cuentas al mundo, con criterio y sin promesas vacías.</p>
+          </article>
+
+          <article class="cy-item" data-iw-target="cy-4">
+            <p class="cy-item__num">Paso 04</p>
+            <h3 class="cy-item__title">Automatiza y escala</h3>
+            <p class="cy-item__desc">El sistema trabaja para ti, no al revés. Lo que funciona, lo amplificas.</p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

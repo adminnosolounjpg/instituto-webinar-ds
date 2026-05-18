@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>IW Diagram — Timeline</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <style>
+    .slide-bg { background-image: url('../assets/bg/fondos-10.jpg'); background-size: cover; background-position: center; }
+    .diagram-wrap { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; padding: 110px 80px; gap: 40px; }
+    .diagram-title { text-align: center; margin: 0; }
+    .timeline-svg { width: 100%; max-width: 1600px; height: auto; }
+    .tl-year { font-family: var(--iw-font); font-weight: 800; font-size: 30px; fill: var(--iw-primary); letter-spacing: -0.01em; }
+    .tl-title { font-family: var(--iw-font); font-weight: 800; font-size: 24px; fill: var(--iw-dark); }
+    .tl-desc { font-family: var(--iw-font); font-weight: 400; font-size: 19px; fill: var(--iw-ink-soft); }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+    <div class="diagram-wrap">
+      <p class="iw-eyebrow" style="text-align:center;margin:0;">Trayectoria</p>
+      <h1 class="iw-h1 diagram-title" style="margin:0;">Cinco hitos <span class="iw-hl">que marcan nuestra historia</span></h1>
+
+      <svg class="timeline-svg" viewBox="0 0 1600 500" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <!-- Línea horizontal -->
+        <line x1="80" y1="250" x2="1520" y2="250" stroke="#3475EF" stroke-width="3" opacity="0.5"/>
+
+        <!-- Hito 1 -->
+        <circle cx="160" cy="250" r="14" fill="#3475EF"/>
+        <text x="160" y="180" class="tl-year" text-anchor="middle">2017</text>
+        <text x="160" y="320" class="tl-title" text-anchor="middle">Fundación</text>
+        <text x="160" y="350" class="tl-desc" text-anchor="middle">El sistema</text>
+        <text x="160" y="372" class="tl-desc" text-anchor="middle">nace.</text>
+
+        <!-- Hito 2 -->
+        <circle cx="500" cy="250" r="14" fill="#3475EF"/>
+        <text x="500" y="180" class="tl-year" text-anchor="middle">2019</text>
+        <text x="500" y="320" class="tl-title" text-anchor="middle">Primeros 100 alumnos</text>
+        <text x="500" y="350" class="tl-desc" text-anchor="middle">Validamos</text>
+        <text x="500" y="372" class="tl-desc" text-anchor="middle">el método.</text>
+
+        <!-- Hito 3 -->
+        <circle cx="840" cy="250" r="14" fill="#3475EF"/>
+        <text x="840" y="180" class="tl-year" text-anchor="middle">2021</text>
+        <text x="840" y="320" class="tl-title" text-anchor="middle">Programa premium</text>
+        <text x="840" y="350" class="tl-desc" text-anchor="middle">KISS Business</text>
+        <text x="840" y="372" class="tl-desc" text-anchor="middle">lanzado.</text>
+
+        <!-- Hito 4 -->
+        <circle cx="1180" cy="250" r="14" fill="#3475EF"/>
+        <text x="1180" y="180" class="tl-year" text-anchor="middle">2023</text>
+        <text x="1180" y="320" class="tl-title" text-anchor="middle">Comunidad +1.000</text>
+        <text x="1180" y="350" class="tl-desc" text-anchor="middle">Negocios escalando</text>
+        <text x="1180" y="372" class="tl-desc" text-anchor="middle">con el sistema.</text>
+
+        <!-- Hito 5 -->
+        <circle cx="1480" cy="250" r="14" fill="#fff" stroke="#3475EF" stroke-width="4"/>
+        <text x="1480" y="180" class="tl-year" text-anchor="middle">Hoy</text>
+        <text x="1480" y="320" class="tl-title" text-anchor="middle">+80M generados</text>
+        <text x="1480" y="350" class="tl-desc" text-anchor="middle">Entre todos</text>
+        <text x="1480" y="372" class="tl-desc" text-anchor="middle">nuestros clientes.</text>
+      </svg>
+    </div>
+  </section>
+</div>
+</body>
+</html>

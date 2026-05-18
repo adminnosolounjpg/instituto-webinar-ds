@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>IW Diagram — Chevrons</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <script defer src="../lib/iw-interact.js"></script>
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Layout: header arriba + fila de chevrons + labels debajo, centrado vertical */
+    .ch-slide {
+      height: 100%;
+      padding: 100px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 80px;
+    }
+    .ch-slide__header {
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .ch-slide__eyebrow { margin: 0 0 24px 0; }
+    .ch-slide__title   { text-align: center; margin: 0 0 24px 0; font-size: 60px; }
+    .ch-slide__sub     { font-size: 24px; max-width: 1000px; margin: 0 auto; }
+
+    /* Fila de chevrons + labels */
+    .ch-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    .ch-svg {
+      width: 100%;
+      max-width: 1400px;
+      height: auto;
+      display: block;
+    }
+    .ch-svg__group { transition: opacity 0.25s ease; cursor: pointer; }
+    .ch-svg__shape {
+      stroke: var(--iw-dark);
+      stroke-width: 2;
+      stroke-linejoin: round;
+    }
+    .ch-svg__num {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 64px;
+      fill: var(--iw-dark);
+      text-anchor: middle;
+      dominant-baseline: middle;
+      pointer-events: none;
+      user-select: none;
+    }
+    [data-iw-diagram].iw-has-active .ch-svg__group.is-dimmed { opacity: 0.22; }
+    [data-iw-diagram].iw-has-active .ch-svg__group.is-active { opacity: 1; }
+
+    /* Labels debajo de cada chevron, alineados con el centro del chevron */
+    .ch-labels {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      width: 100%;
+      max-width: 1400px;
+    }
+    .ch-label {
+      text-align: center;
+      padding: 0 16px;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      cursor: pointer;
+    }
+    .ch-label.is-active,
+    .ch-label:hover { transform: translateY(-3px); }
+    .ch-label__num {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--iw-primary);
+      margin: 0 0 8px 0;
+    }
+    .ch-label__title {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 24px;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--iw-dark);
+      margin: 0 0 8px 0;
+    }
+    .ch-label__desc {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 1.5;
+      color: var(--iw-ink-soft);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="ch-slide" data-iw-diagram>
+
+      <header class="ch-slide__header">
+        <p class="iw-eyebrow ch-slide__eyebrow">Progresión</p>
+        <h1 class="iw-h1 ch-slide__title">El recorrido <span class="iw-hl">paso a paso</span></h1>
+        <p class="iw-diagram-sub ch-slide__sub">Cuatro etapas que el método ejecuta en orden. Cada una habilita la siguiente.</p>
+      </header>
+
+      <div class="ch-row">
+
+        <!-- Fila de 4 chevrons -->
+        <svg class="ch-svg" viewBox="0 0 1400 180" xmlns="http://www.w3.org/2000/svg" fill="none">
+
+          <!-- Chevron 1 -->
+          <g class="ch-svg__group" data-iw-segment="ch-1">
+            <polygon class="ch-svg__shape"
+                     points="20,20 280,20 340,90 280,160 20,160 80,90"
+                     fill="#D7E4FF"/>
+            <text class="ch-svg__num" x="170" y="92">1</text>
+          </g>
+
+          <!-- Chevron 2 -->
+          <g class="ch-svg__group" data-iw-segment="ch-2">
+            <polygon class="ch-svg__shape"
+                     points="360,20 620,20 680,90 620,160 360,160 420,90"
+                     fill="#A8C3F5"/>
+            <text class="ch-svg__num" x="510" y="92">2</text>
+          </g>
+
+          <!-- Chevron 3 -->
+          <g class="ch-svg__group" data-iw-segment="ch-3">
+            <polygon class="ch-svg__shape"
+                     points="700,20 960,20 1020,90 960,160 700,160 760,90"
+                     fill="#6E9DEC"/>
+            <text class="ch-svg__num" x="850" y="92" style="fill:#FFFFFF">3</text>
+          </g>
+
+          <!-- Chevron 4 (clímax brand) -->
+          <g class="ch-svg__group" data-iw-segment="ch-4">
+            <polygon class="ch-svg__shape"
+                     points="1040,20 1300,20 1360,90 1300,160 1040,160 1100,90"
+                     fill="#3475EF"/>
+            <text class="ch-svg__num" x="1190" y="92" style="fill:#FFFFFF">4</text>
+          </g>
+
+        </svg>
+
+        <!-- Labels debajo, conectados al SVG -->
+        <div class="ch-labels" data-iw-stagger>
+
+          <article class="ch-label" data-iw-target="ch-1">
+            <p class="ch-label__num">Etapa 01</p>
+            <h3 class="ch-label__title">Atraer</h3>
+            <p class="ch-label__desc">Captas la atención de tu cliente ideal.</p>
+          </article>
+
+          <article class="ch-label" data-iw-target="ch-2">
+            <p class="ch-label__num">Etapa 02</p>
+            <h3 class="ch-label__title">Convertir</h3>
+            <p class="ch-label__desc">Conviertes interesados en leads cualificados.</p>
+          </article>
+
+          <article class="ch-label" data-iw-target="ch-3">
+            <p class="ch-label__num">Etapa 03</p>
+            <h3 class="ch-label__title">Cerrar</h3>
+            <p class="ch-label__desc">Cierras ventas con criterio y consistencia.</p>
+          </article>
+
+          <article class="ch-label" data-iw-target="ch-4">
+            <p class="ch-label__num">Etapa 04</p>
+            <h3 class="ch-label__title">Escalar</h3>
+            <p class="ch-label__desc">Lo que funciona, lo amplificas sin perder calidad.</p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

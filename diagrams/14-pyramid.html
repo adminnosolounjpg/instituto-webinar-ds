@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>IW Diagram — Pyramid</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <script defer src="../lib/iw-interact.js"></script>
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Layout: header centrado arriba + body 2 col (pirámide + lista) */
+    .py-slide {
+      height: 100%;
+      padding: 100px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 64px;
+    }
+    .py-slide__header {
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .py-slide__eyebrow { margin: 0 0 24px 0; }
+    .py-slide__title   { text-align: center; margin: 0 0 24px 0; font-size: 64px; }
+    .py-slide__sub     { font-size: 26px; max-width: 1000px; margin: 0 auto; }
+
+    .py-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    /* Pirámide SVG: width 560px, ratio cuadrada */
+    .py-svg {
+      width: 560px;
+      height: auto;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+    /* El <g> agrupa polygon + número, así la atenuación afecta a ambos juntos */
+    .py-svg__group {
+      transition: opacity 0.25s ease;
+      cursor: pointer;
+    }
+    .py-svg__group polygon {
+      stroke: var(--iw-dark);
+      stroke-width: 2;
+      stroke-linejoin: round;
+    }
+    .py-svg__num {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 56px;
+      fill: var(--iw-dark);
+      text-anchor: middle;
+      dominant-baseline: middle;
+      pointer-events: none;
+      user-select: none;
+    }
+    /* Dimming explícito: el <g> entero (polygon + text) cae al 22% */
+    [data-iw-diagram].iw-has-active .py-svg__group.is-dimmed { opacity: 0.22; }
+    [data-iw-diagram].iw-has-active .py-svg__group.is-active { opacity: 1; }
+
+    /* Lista derecha — items con separador horizontal entre cada uno */
+    .py-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .py-item {
+      display: block;
+      padding: 28px 8px;
+      border-top: 1px solid rgba(19, 29, 45, 0.10);
+      cursor: pointer;
+      transition: background 0.25s ease, padding 0.25s ease;
+    }
+    .py-item:first-child { border-top: 0; padding-top: 8px; }
+    .py-item:last-child  { padding-bottom: 8px; }
+    .py-item.is-active,
+    .py-item:hover {
+      padding-left: 16px;
+    }
+    .py-item__num {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--iw-primary);
+      margin: 0 0 6px 0;
+    }
+    .py-item__title {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--iw-dark);
+      margin: 0 0 8px 0;
+    }
+    .py-item__desc {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--iw-ink-soft);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="py-slide" data-iw-diagram>
+
+      <header class="py-slide__header">
+        <p class="iw-eyebrow py-slide__eyebrow">Jerarquía</p>
+        <h1 class="iw-h1 py-slide__title">Lo que sostiene tu negocio, <span class="iw-hl">en orden</span></h1>
+        <p class="iw-diagram-sub py-slide__sub">De la cima a la base: lo que se ve, lo que lo produce y lo que lo hace posible.</p>
+      </header>
+
+      <div class="py-body">
+
+        <!-- Pirámide SVG -->
+        <svg class="py-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" fill="none">
+
+          <!-- Nivel 1: cumbre (triángulo top) -->
+          <g class="py-svg__group" data-iw-segment="py-1">
+            <polygon points="200,40 140,160 260,160" fill="#D7E4FF"/>
+            <text class="py-svg__num" x="200" y="120">1</text>
+          </g>
+
+          <!-- Nivel 2: medio (trapezoide) -->
+          <g class="py-svg__group" data-iw-segment="py-2">
+            <polygon points="140,168 260,168 310,260 90,260" fill="#A8C3F5"/>
+            <text class="py-svg__num" x="200" y="218">2</text>
+          </g>
+
+          <!-- Nivel 3: base (trapezoide, clímax brand) -->
+          <g class="py-svg__group" data-iw-segment="py-3">
+            <polygon points="90,268 310,268 360,360 40,360" fill="#3475EF"/>
+            <text class="py-svg__num" x="200" y="318" style="fill:#FFFFFF">3</text>
+          </g>
+
+        </svg>
+
+        <!-- Lista derecha — conectada al SVG vía data-iw-target -->
+        <div class="py-list" data-iw-stagger>
+
+          <article class="py-item" data-iw-target="py-1">
+            <p class="py-item__num">Nivel 01 · Cumbre</p>
+            <h3 class="py-item__title">Resultados</h3>
+            <p class="py-item__desc">Lo visible: ventas, conversiones, clientes que llegan mes a mes.</p>
+          </article>
+
+          <article class="py-item" data-iw-target="py-2">
+            <p class="py-item__num">Nivel 02 · Medio</p>
+            <h3 class="py-item__title">Sistema</h3>
+            <p class="py-item__desc">Lo que produce los resultados: oferta, embudo, comunicación predecible.</p>
+          </article>
+
+          <article class="py-item" data-iw-target="py-3">
+            <p class="py-item__num">Nivel 03 · Base</p>
+            <h3 class="py-item__title">Maestría</h3>
+            <p class="py-item__desc">El fundamento que sostiene todo: criterio para discernir y actuar con foco.</p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

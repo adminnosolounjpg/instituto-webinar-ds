@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Instituto Webinar — Process flow horizontal</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    /* Lucide-style icon: viewBox 24x24, stroke 2, redondeado */
+    .lucide {
+      width: 64px;
+      height: 64px;
+      stroke: var(--iw-primary);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .arrow-h {
+      width: 48px;
+      height: 24px;
+      stroke: var(--iw-dark);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="iw-layout-stack" style="padding: 200px 140px;">
+
+      <h1 class="iw-h1 iw-h1--center" style="margin-bottom: 24px;">
+        Y eso es exactamente lo que<br>
+        vamos <span class="iw-hl">a enseñarte aquí…</span>
+      </h1>
+
+      <div class="iw-flow">
+
+        <!-- Sector — Lucide: target -->
+        <div class="iw-flow__step">
+          <div class="iw-flow__circle">
+            <svg class="lucide" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="6"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
+          <span class="iw-flow__label">Sector</span>
+        </div>
+
+        <div class="iw-flow__arrow">
+          <svg class="arrow-h" viewBox="0 0 48 24" xmlns="http://www.w3.org/2000/svg">
+            <line x1="4" y1="12" x2="40" y2="12"/>
+            <polyline points="32 4 42 12 32 20"/>
+          </svg>
+        </div>
+
+        <!-- Experiencia — Lucide: award -->
+        <div class="iw-flow__step">
+          <div class="iw-flow__circle">
+            <svg class="lucide" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="8" r="6"/>
+              <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+            </svg>
+          </div>
+          <span class="iw-flow__label">Experiencia</span>
+        </div>
+
+        <div class="iw-flow__arrow">
+          <svg class="arrow-h" viewBox="0 0 48 24" xmlns="http://www.w3.org/2000/svg">
+            <line x1="4" y1="12" x2="40" y2="12"/>
+            <polyline points="32 4 42 12 32 20"/>
+          </svg>
+        </div>
+
+        <!-- Seguidores — Lucide: users -->
+        <div class="iw-flow__step">
+          <div class="iw-flow__circle">
+            <svg class="lucide" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <span class="iw-flow__label">Seguidores</span>
+        </div>
+
+        <div class="iw-flow__arrow">
+          <svg class="arrow-h" viewBox="0 0 48 24" xmlns="http://www.w3.org/2000/svg">
+            <line x1="4" y1="12" x2="40" y2="12"/>
+            <polyline points="32 4 42 12 32 20"/>
+          </svg>
+        </div>
+
+        <!-- Tendencias — Lucide: trending-up -->
+        <div class="iw-flow__step">
+          <div class="iw-flow__circle">
+            <svg class="lucide" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+              <polyline points="16 7 22 7 22 13"/>
+            </svg>
+          </div>
+          <span class="iw-flow__label">Tendencias</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

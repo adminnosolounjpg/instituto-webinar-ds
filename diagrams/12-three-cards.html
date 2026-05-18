@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>IW Diagram — Three cards</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <script defer src="../lib/iw-interact.js"></script>
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Layout: cabecera arriba + grid de 3 cards abajo */
+    .tc-slide {
+      height: 100%;
+      padding: 100px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 56px;
+    }
+    .tc-slide__header {
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .tc-slide__eyebrow { margin: 0 0 24px 0; }
+    .tc-slide__title   { text-align: center; margin: 0 0 24px 0; font-size: 64px; }
+    .tc-slide__sub     { font-size: 26px; max-width: 1000px; margin: 0 auto; }
+
+    /* Grid de 3 cards: altura intrínseca, gap respirado */
+    .tc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* Card: body blanco con sombra suave, border-radius generoso */
+    .tc-card {
+      background: var(--iw-surface);
+      border-radius: var(--iw-radius-cardLg);
+      box-shadow: var(--iw-shadow-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .tc-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--iw-shadow-lg);
+    }
+
+    /* Línea superior: acento cromático progresivo por card */
+    .tc-card__band {
+      height: 6px;
+      flex-shrink: 0;
+    }
+    .tc-card--1 .tc-card__band { background: #D7E4FF; }
+    .tc-card--2 .tc-card__band { background: #A8C3F5; }
+    .tc-card--3 .tc-card__band { background: #6E9DEC; }
+
+    /* Icono circular lavanda sólida (sigue convención IW de iconos) */
+    .tc-card__icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: var(--iw-light);
+      display: grid;
+      place-items: center;
+      margin: 64px auto 0;
+      flex-shrink: 0;
+    }
+    .tc-card__icon svg {
+      width: 44px;
+      height: 44px;
+      stroke: var(--iw-primary);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    /* Card 3 = clímax cromático: círculo brand + icono blanco */
+    .tc-card--3 .tc-card__icon     { background: var(--iw-primary); }
+    .tc-card--3 .tc-card__icon svg { stroke: var(--iw-on-dark); }
+
+    /* Body: jerarquía kicker → título → descripción */
+    .tc-card__body {
+      padding: 28px 44px 52px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .tc-card__kicker {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--iw-primary);
+      margin: 0;
+    }
+    .tc-card__title {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 34px;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--iw-dark);
+      margin: 0;
+    }
+    .tc-card__desc {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 21px;
+      line-height: 1.5;
+      color: var(--iw-ink-soft);
+      margin: 8px 0 0 0;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="tc-slide" data-iw-diagram>
+
+      <header class="tc-slide__header">
+        <p class="iw-eyebrow tc-slide__eyebrow">Tres pilares</p>
+        <h1 class="iw-h1 tc-slide__title">El sistema que sostiene <span class="iw-hl">tu negocio</span></h1>
+        <p class="iw-diagram-sub tc-slide__sub">Sin uno solo de ellos, lo que construyes no escala. Los tres se sostienen mutuamente.</p>
+      </header>
+
+      <div class="tc-grid" data-iw-stagger>
+
+        <!-- Card 1 — Foco -->
+        <article class="tc-card tc-card--1">
+          <div class="tc-card__band"></div>
+          <div class="tc-card__icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="22" y1="12" x2="18" y2="12"/>
+              <line x1="6" y1="12" x2="2" y2="12"/>
+              <line x1="12" y1="6" x2="12" y2="2"/>
+              <line x1="12" y1="22" x2="12" y2="18"/>
+            </svg>
+          </div>
+          <div class="tc-card__body">
+            <p class="tc-card__kicker">01 · Foco</p>
+            <h3 class="tc-card__title">Saber qué atender</h3>
+            <p class="tc-card__desc">Discernir lo que mueve el negocio de lo que solo te ocupa tiempo.</p>
+          </div>
+        </article>
+
+        <!-- Card 2 — Sistema -->
+        <article class="tc-card tc-card--2">
+          <div class="tc-card__band"></div>
+          <div class="tc-card__icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="6" height="6" rx="1"/>
+              <rect x="15" y="3" width="6" height="6" rx="1"/>
+              <rect x="9" y="15" width="6" height="6" rx="1"/>
+              <path d="M6 9v3a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9"/>
+              <line x1="12" y1="14" x2="12" y2="15"/>
+            </svg>
+          </div>
+          <div class="tc-card__body">
+            <p class="tc-card__kicker">02 · Sistema</p>
+            <h3 class="tc-card__title">Procesos sin tu presencia</h3>
+            <p class="tc-card__desc">Un método que se ejecuta aunque tú no estés delante de la pantalla.</p>
+          </div>
+        </article>
+
+        <!-- Card 3 — Consistencia -->
+        <article class="tc-card tc-card--3">
+          <div class="tc-card__band"></div>
+          <div class="tc-card__icon">
+            <svg viewBox="0 0 24 24">
+              <path d="m17 2 4 4-4 4"/>
+              <path d="M3 11v-1a4 4 0 0 1 4-4h14"/>
+              <path d="m7 22-4-4 4-4"/>
+              <path d="M21 13v1a4 4 0 0 1-4 4H3"/>
+            </svg>
+          </div>
+          <div class="tc-card__body">
+            <p class="tc-card__kicker">03 · Consistencia</p>
+            <h3 class="tc-card__title">Repetir lo que funciona</h3>
+            <p class="tc-card__desc">Mantener lo que da resultados, sin saltar de moda en moda.</p>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

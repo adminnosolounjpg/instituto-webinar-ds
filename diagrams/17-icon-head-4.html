@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>IW Diagram — Icon head 4</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <script defer src="../lib/iw-interact.js"></script>
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .ih-slide {
+      height: 100%;
+      padding: 100px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 56px;
+    }
+    .ih-slide__header {
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .ih-slide__eyebrow { margin: 0 0 24px 0; }
+    .ih-slide__title   { text-align: center; margin: 0 0 24px 0; font-size: 60px; }
+    .ih-slide__sub     { font-size: 24px; max-width: 1000px; margin: 0 auto; }
+
+    /* Grid 2×2 con cards igualadas en altura por fila */
+    .ih-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+
+    /* Card compacta: icono arriba-izq + texto */
+    .ih-card {
+      background: rgba(215, 228, 255, 0.45);
+      border-radius: var(--iw-radius-cardLg);
+      padding: 36px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .ih-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--iw-shadow-md);
+    }
+
+    /* Icono compacto top-left (no centrado, no hero) */
+    .ih-card__icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--iw-light);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .ih-card__icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--iw-primary);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .ih-card__body {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .ih-card__kicker {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--iw-primary);
+      margin: 0;
+    }
+    .ih-card__title {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 26px;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--iw-dark);
+      margin: 0;
+    }
+    .ih-card__desc {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--iw-ink-soft);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="ih-slide" data-iw-diagram>
+
+      <header class="ih-slide__header">
+        <p class="iw-eyebrow ih-slide__eyebrow">Pilares</p>
+        <h1 class="iw-h1 ih-slide__title">Cuatro elementos <span class="iw-hl">del sistema</span></h1>
+        <p class="iw-diagram-sub ih-slide__sub">Cada uno es independiente, pero juntos sostienen un negocio que escala.</p>
+      </header>
+
+      <div class="ih-grid" data-iw-stagger>
+
+        <!-- Card 1 -->
+        <article class="ih-card">
+          <div class="ih-card__icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="22" y1="12" x2="18" y2="12"/>
+              <line x1="6" y1="12" x2="2" y2="12"/>
+              <line x1="12" y1="6" x2="12" y2="2"/>
+              <line x1="12" y1="22" x2="12" y2="18"/>
+            </svg>
+          </div>
+          <div class="ih-card__body">
+            <p class="ih-card__kicker">Pilar 01</p>
+            <h3 class="ih-card__title">Foco</h3>
+            <p class="ih-card__desc">Saber qué atender y qué soltar para no dispersarse en lo irrelevante.</p>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="ih-card">
+          <div class="ih-card__icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="6" height="6" rx="1"/>
+              <rect x="15" y="3" width="6" height="6" rx="1"/>
+              <rect x="9" y="15" width="6" height="6" rx="1"/>
+              <path d="M6 9v3a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9"/>
+              <line x1="12" y1="14" x2="12" y2="15"/>
+            </svg>
+          </div>
+          <div class="ih-card__body">
+            <p class="ih-card__kicker">Pilar 02</p>
+            <h3 class="ih-card__title">Sistema</h3>
+            <p class="ih-card__desc">Procesos que producen resultados predecibles, no esfuerzo manual.</p>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="ih-card">
+          <div class="ih-card__icon">
+            <svg viewBox="0 0 24 24">
+              <path d="m17 2 4 4-4 4"/>
+              <path d="M3 11v-1a4 4 0 0 1 4-4h14"/>
+              <path d="m7 22-4-4 4-4"/>
+              <path d="M21 13v1a4 4 0 0 1-4 4H3"/>
+            </svg>
+          </div>
+          <div class="ih-card__body">
+            <p class="ih-card__kicker">Pilar 03</p>
+            <h3 class="ih-card__title">Consistencia</h3>
+            <p class="ih-card__desc">Repetir lo que funciona sin saltar de una moda a otra.</p>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="ih-card">
+          <div class="ih-card__icon">
+            <svg viewBox="0 0 24 24">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+              <polyline points="16 7 22 7 22 13"/>
+            </svg>
+          </div>
+          <div class="ih-card__body">
+            <p class="ih-card__kicker">Pilar 04</p>
+            <h3 class="ih-card__title">Escalada</h3>
+            <p class="ih-card__desc">Amplificar lo que ya funciona sin perder calidad en el camino.</p>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

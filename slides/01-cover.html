@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Instituto Webinar — Cover</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="../tokens.css">
+  <style>
+    .cover {
+      /* Fondo original de marca (gradiente blanco → lavanda + onditas) */
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      padding: 64px 160px 160px;
+    }
+
+    .cover__header {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .cover__header img {
+      height: 56px;
+      width: auto;
+    }
+
+    .cover__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .cover__title {
+      font-family: var(--iw-font);
+      font-weight: 900;
+      font-size: 104px;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      color: var(--iw-dark);
+      margin: 0;
+      max-width: 1100px;
+    }
+    .cover__title .iw-hl {
+      color: var(--iw-primary);
+      display: block;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide cover">
+
+    <header class="cover__header">
+      <img src="../assets/logos/logo-117.png" alt="Instituto Webinar">
+    </header>
+
+    <div class="cover__body">
+      <h1 class="cover__title">
+        Bienvenida a
+        <span class="iw-hl">KISS Business</span>
+      </h1>
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

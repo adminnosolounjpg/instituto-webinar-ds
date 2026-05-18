@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>IW Diagram — Big numbers</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <script defer src="../lib/iw-interact.js"></script>
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Layout: header centrado arriba + grid de stats abajo, todo el bloque centrado vertical */
+    .bn-slide {
+      height: 100%;
+      padding: 100px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 88px;
+    }
+    .bn-slide__header {
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .bn-slide__eyebrow { margin: 0 0 24px 0; }
+    .bn-slide__title   { text-align: center; margin: 0 0 24px 0; font-size: 64px; }
+    .bn-slide__sub     { font-size: 26px; max-width: 1000px; margin: 0 auto; }
+
+    /* Grid de stats: 3 columnas, números libres sin container */
+    .bn-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* Stat: número XXL + label corto + descripción */
+    .bn-stat {
+      text-align: center;
+      padding: 0 24px;
+    }
+    .bn-stat__number {
+      font-family: var(--iw-font);
+      font-weight: 900;
+      font-size: 144px;
+      line-height: 1;
+      letter-spacing: -0.045em;
+      color: var(--iw-primary);
+      margin: 0 0 28px 0;
+    }
+    .bn-stat__label {
+      font-family: var(--iw-font);
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 1.2;
+      letter-spacing: -0.005em;
+      color: var(--iw-dark);
+      margin: 0 0 14px 0;
+    }
+    .bn-stat__desc {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 21px;
+      line-height: 1.5;
+      color: var(--iw-ink-soft);
+      margin: 0;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="bn-slide" data-iw-diagram>
+
+      <header class="bn-slide__header">
+        <p class="iw-eyebrow bn-slide__eyebrow">Resultados</p>
+        <h1 class="iw-h1 bn-slide__title">Lo que pasa cuando <span class="iw-hl">aplicas el sistema</span></h1>
+        <p class="iw-diagram-sub bn-slide__sub">Datos reales del trabajo con nuestros alumnos y clientes durante los últimos años.</p>
+      </header>
+
+      <div class="bn-grid" data-iw-stagger>
+
+        <article class="bn-stat">
+          <p class="bn-stat__number">8</p>
+          <p class="bn-stat__label">Años usando el sistema</p>
+          <p class="bn-stat__desc">El mismo método de ventas, sin saltar de una estrategia a otra siguiendo modas.</p>
+        </article>
+
+        <article class="bn-stat">
+          <p class="bn-stat__number">10x</p>
+          <p class="bn-stat__label">ROAS promedio</p>
+          <p class="bn-stat__desc">Rentabilidad medible en las campañas que estructuramos para nuestros alumnos.</p>
+        </article>
+
+        <article class="bn-stat">
+          <p class="bn-stat__number">+80M</p>
+          <p class="bn-stat__label">Generados en anuncios</p>
+          <p class="bn-stat__desc">Resultado acumulado de los negocios que han pasado por el método.</p>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

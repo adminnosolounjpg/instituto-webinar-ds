@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>IW Diagram — Donut quads</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <script defer src="../lib/iw-interact.js"></script>
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .dq-slide {
+      height: 100%;
+      padding: 90px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 56px;
+    }
+    .dq-slide__header {
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .dq-slide__eyebrow { margin: 0 0 24px 0; }
+    .dq-slide__title   { text-align: center; margin: 0 0 24px 0; font-size: 60px; }
+    .dq-slide__sub     { font-size: 24px; max-width: 1000px; margin: 0 auto; }
+
+    .dq-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    /* SVG donut quads */
+    .dq-svg {
+      width: 100%;
+      max-width: 640px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .dq-svg__group { transition: opacity 0.25s ease; cursor: pointer; }
+    .dq-svg__seg {
+      stroke: var(--iw-dark);
+      stroke-width: 2;
+      stroke-linejoin: round;
+    }
+    .dq-svg__icon {
+      pointer-events: none;
+    }
+    .dq-svg__icon path,
+    .dq-svg__icon circle,
+    .dq-svg__icon line,
+    .dq-svg__icon polyline,
+    .dq-svg__icon polygon {
+      stroke-width: 1.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    [data-iw-diagram].iw-has-active .dq-svg__group.is-dimmed { opacity: 0.22; }
+    [data-iw-diagram].iw-has-active .dq-svg__group.is-active { opacity: 1; }
+
+    /* Lista derecha */
+    .dq-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .dq-item {
+      display: block;
+      padding: 22px 8px;
+      border-top: 1px solid rgba(19, 29, 45, 0.10);
+      cursor: pointer;
+      transition: padding 0.25s ease;
+    }
+    .dq-item:first-child { border-top: 0; padding-top: 8px; }
+    .dq-item:last-child  { padding-bottom: 8px; }
+    .dq-item.is-active,
+    .dq-item:hover { padding-left: 16px; }
+    .dq-item__num {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--iw-primary);
+      margin: 0 0 6px 0;
+    }
+    .dq-item__title {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 28px;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--iw-dark);
+      margin: 0 0 6px 0;
+    }
+    .dq-item__desc {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--iw-ink-soft);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="dq-slide" data-iw-diagram>
+
+      <header class="dq-slide__header">
+        <p class="iw-eyebrow dq-slide__eyebrow">Cuatro frentes</p>
+        <h1 class="iw-h1 dq-slide__title">Las áreas que ocupan <span class="iw-hl">tu energía</span></h1>
+        <p class="iw-diagram-sub dq-slide__sub">Cada cuadrante exige decisiones distintas. Lo que les das es lo que recibes.</p>
+      </header>
+
+      <div class="dq-body">
+
+        <!-- SVG donut quads: centro (250,250), ro=180, ri=80 -->
+        <svg class="dq-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" fill="none">
+
+          <!-- Segmento 1: top-right · ATRACCIÓN — megaphone (icono brand sobre lavanda) -->
+          <g class="dq-svg__group" data-iw-segment="dq-1">
+            <path class="dq-svg__seg" fill="#D7E4FF"
+                  d="M 250 70 A 180 180 0 0 1 430 250 L 330 250 A 80 80 0 0 0 250 170 Z"/>
+            <g class="dq-svg__icon" transform="translate(318,134) scale(2)" stroke="#3475EF">
+              <path d="m3 11 18-5v12L3 14v-3z"/>
+              <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>
+            </g>
+          </g>
+
+          <!-- Segmento 2: bottom-right · CONVERSIÓN — user-check (brand sobre medio lavanda) -->
+          <g class="dq-svg__group" data-iw-segment="dq-2">
+            <path class="dq-svg__seg" fill="#A8C3F5"
+                  d="M 430 250 A 180 180 0 0 1 250 430 L 250 330 A 80 80 0 0 0 330 250 Z"/>
+            <g class="dq-svg__icon" transform="translate(318,318) scale(2)" stroke="#3475EF">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <polyline points="17 11 19 13 23 9"/>
+            </g>
+          </g>
+
+          <!-- Segmento 3: bottom-left · RETENCIÓN — heart (blanco sobre tono oscuro) -->
+          <g class="dq-svg__group" data-iw-segment="dq-3">
+            <path class="dq-svg__seg" fill="#6E9DEC"
+                  d="M 250 430 A 180 180 0 0 1 70 250 L 170 250 A 80 80 0 0 0 250 330 Z"/>
+            <g class="dq-svg__icon" transform="translate(134,318) scale(2)" stroke="#FFFFFF">
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/>
+            </g>
+          </g>
+
+          <!-- Segmento 4: top-left · ESCALA — trending-up (blanco sobre brand puro) -->
+          <g class="dq-svg__group" data-iw-segment="dq-4">
+            <path class="dq-svg__seg" fill="#3475EF"
+                  d="M 70 250 A 180 180 0 0 1 250 70 L 250 170 A 80 80 0 0 0 170 250 Z"/>
+            <g class="dq-svg__icon" transform="translate(134,134) scale(2)" stroke="#FFFFFF">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+              <polyline points="16 7 22 7 22 13"/>
+            </g>
+          </g>
+
+        </svg>
+
+        <!-- Lista derecha -->
+        <div class="dq-list" data-iw-stagger>
+
+          <article class="dq-item" data-iw-target="dq-1">
+            <p class="dq-item__num">Área 01</p>
+            <h3 class="dq-item__title">Atracción</h3>
+            <p class="dq-item__desc">Lo que haces para que tu cliente ideal te conozca.</p>
+          </article>
+
+          <article class="dq-item" data-iw-target="dq-2">
+            <p class="dq-item__num">Área 02</p>
+            <h3 class="dq-item__title">Conversión</h3>
+            <p class="dq-item__desc">El paso de interesado a cliente, sin presionar ni descontar.</p>
+          </article>
+
+          <article class="dq-item" data-iw-target="dq-3">
+            <p class="dq-item__num">Área 03</p>
+            <h3 class="dq-item__title">Retención</h3>
+            <p class="dq-item__desc">Lo que el cliente recibe que le hace quedarse y recomendarte.</p>
+          </article>
+
+          <article class="dq-item" data-iw-target="dq-4">
+            <p class="dq-item__num">Área 04</p>
+            <h3 class="dq-item__title">Escala</h3>
+            <p class="dq-item__desc">Cuando los tres anteriores funcionan, esto se vuelve repetible.</p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

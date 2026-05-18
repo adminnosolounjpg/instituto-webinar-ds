@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>IW Diagram — Feedback loop</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <script defer src="../lib/iw-interact.js"></script>
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .fl-slide {
+      height: 100%;
+      padding: 100px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 72px;
+    }
+    .fl-slide__header {
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .fl-slide__eyebrow { margin: 0 0 24px 0; }
+    .fl-slide__title   { text-align: center; margin: 0 0 24px 0; font-size: 60px; }
+    .fl-slide__sub     { font-size: 24px; max-width: 1000px; margin: 0 auto; }
+
+    /* Body: 2 cards + flecha bidireccional entre ellas */
+    .fl-body {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 40px;
+      align-items: stretch;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Card */
+    .fl-card {
+      background: rgba(215, 228, 255, 0.45);
+      border-radius: var(--iw-radius-cardLg);
+      padding: 48px 44px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+    }
+    .fl-card:hover { transform: translateY(-6px); box-shadow: var(--iw-shadow-md); }
+    [data-iw-diagram].iw-has-active .fl-card:not(.is-active) {
+      opacity: 0.22 !important;
+    }
+
+    .fl-card__icon {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: var(--iw-light);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .fl-card__icon svg {
+      width: 42px;
+      height: 42px;
+      stroke: var(--iw-primary);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .fl-card__num {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--iw-primary);
+      margin: 0;
+    }
+    .fl-card__title {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 34px;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--iw-dark);
+      margin: 0;
+    }
+    .fl-card__desc {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 21px;
+      line-height: 1.5;
+      color: var(--iw-ink-soft);
+      margin: 0;
+    }
+
+    /* Flecha bidireccional centrada entre las dos cards */
+    .fl-arrow {
+      display: grid;
+      place-items: center;
+      padding: 0 8px;
+    }
+    .fl-arrow svg {
+      width: 120px;
+      height: 60px;
+    }
+    .fl-arrow line,
+    .fl-arrow polyline {
+      stroke: var(--iw-primary);
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="fl-slide" data-iw-diagram>
+
+      <header class="fl-slide__header">
+        <p class="iw-eyebrow fl-slide__eyebrow">Ciclo virtuoso</p>
+        <h1 class="iw-h1 fl-slide__title">Acción y aprendizaje <span class="iw-hl">se construyen juntos</span></h1>
+        <p class="iw-diagram-sub fl-slide__sub">No es uno o el otro. Es el ciclo que sostiene el crecimiento del método.</p>
+      </header>
+
+      <div class="fl-body">
+
+        <!-- Card 1 — Acción -->
+        <article class="fl-card" data-iw-target="fl-1">
+          <div class="fl-card__icon">
+            <svg viewBox="0 0 24 24">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <p class="fl-card__num">Lado 01</p>
+          <h3 class="fl-card__title">Acción</h3>
+          <p class="fl-card__desc">Aplicas lo que sabes, sin esperar a tenerlo todo claro antes de probar.</p>
+        </article>
+
+        <!-- Flecha bidireccional -->
+        <div class="fl-arrow">
+          <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <line x1="22" y1="30" x2="98" y2="30"/>
+            <polyline points="32 16, 18 30, 32 44"/>
+            <polyline points="88 16, 102 30, 88 44"/>
+          </svg>
+        </div>
+
+        <!-- Card 2 — Aprendizaje -->
+        <article class="fl-card" data-iw-target="fl-2">
+          <div class="fl-card__icon">
+            <svg viewBox="0 0 24 24">
+              <line x1="9" y1="18" x2="15" y2="18"/>
+              <line x1="10" y1="22" x2="14" y2="22"/>
+              <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/>
+            </svg>
+          </div>
+          <p class="fl-card__num">Lado 02</p>
+          <h3 class="fl-card__title">Aprendizaje</h3>
+          <p class="fl-card__desc">Cada acción te enseña qué funciona, qué refinar y qué descartar.</p>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

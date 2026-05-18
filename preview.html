@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Instituto Webinar — Design system preview</title>
+  <link rel="stylesheet" href="./tokens.css">
+  <style>
+    body {
+      background: #f9fafb;
+      padding: 64px 80px;
+    }
+    .preview-header {
+      max-width: 1400px;
+      margin: 0 auto 56px auto;
+    }
+    .preview-header h1 {
+      font-family: var(--iw-font);
+      font-weight: 900;
+      font-size: 56px;
+      color: var(--iw-dark);
+      margin: 0 0 16px 0;
+      letter-spacing: -0.02em;
+    }
+    .preview-header h1 span { color: var(--iw-primary); }
+    .preview-header p {
+      font-family: var(--iw-font);
+      font-size: 20px;
+      color: var(--iw-ink-soft);
+      max-width: 900px;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .preview-section {
+      max-width: 1400px;
+      margin: 0 auto 72px auto;
+    }
+    .preview-section h2 {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 32px;
+      color: var(--iw-dark);
+      margin: 0 0 32px 0;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--iw-light);
+    }
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 32px;
+    }
+    .preview-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .preview-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(52, 117, 239, 0.12);
+    }
+    .preview-card iframe {
+      width: 1920px;
+      height: 1080px;
+      transform: scale(calc(420 / 1920));
+      transform-origin: top left;
+      border: 0;
+      display: block;
+    }
+    .preview-card__frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #f3f4f6;
+      position: relative;
+    }
+    .preview-card__caption {
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .preview-card__name {
+      font-family: var(--iw-font);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--iw-dark);
+      margin: 0;
+    }
+    .preview-card__link {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--iw-primary);
+      text-decoration: none;
+    }
+    .preview-card__link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header class="preview-header">
+  <h1>Instituto Webinar — <span>Design system</span></h1>
+  <p>Catálogo visual de las 10 plantillas de slide y los smart diagrams disponibles. Click en "Abrir" para ver cualquier plantilla a tamaño completo y copiar su código.</p>
+</header>
+
+<section class="preview-section">
+  <h2>Plantillas de slide</h2>
+  <div class="preview-grid">
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./slides/01-cover.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">01 · Cover</p><a class="preview-card__link" href="./slides/01-cover.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./slides/02-content-bullets.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">02 · Title + bullets + media</p><a class="preview-card__link" href="./slides/02-content-bullets.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./slides/03-pill-grid.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">03 · Pill grid</p><a class="preview-card__link" href="./slides/03-pill-grid.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./slides/04-numbered-list.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">04 · Numbered list</p><a class="preview-card__link" href="./slides/04-numbered-list.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./slides/05-section-divider.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">05 · Section divider</p><a class="preview-card__link" href="./slides/05-section-divider.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./slides/06-big-statement.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">06 · Big statement</p><a class="preview-card__link" href="./slides/06-big-statement.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./slides/07-callout.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">07 · Callout (headline + sub)</p><a class="preview-card__link" href="./slides/07-callout.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./slides/08-testimonial-single.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">08 · Testimonio individual</p><a class="preview-card__link" href="./slides/08-testimonial-single.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./slides/09-testimonials-grid.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">09 · Testimonios grid 3×2</p><a class="preview-card__link" href="./slides/09-testimonials-grid.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./slides/10-process-flow.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">10 · Process flow</p><a class="preview-card__link" href="./slides/10-process-flow.html" target="_blank">Abrir →</a></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="preview-section">
+  <h2>Smart diagrams</h2>
+  <div class="preview-grid">
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/02-road.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">02 · Road (lineal)</p><a class="preview-card__link" href="./diagrams/02-road.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/05-funnel.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">05 · Funnel</p><a class="preview-card__link" href="./diagrams/05-funnel.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/06-funnel-3d.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">06 · Funnel 3D</p><a class="preview-card__link" href="./diagrams/06-funnel-3d.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/10-timeline.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">10 · Timeline (compacta)</p><a class="preview-card__link" href="./diagrams/10-timeline.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/11-cycle-4steps.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">11 · Cycle 4 steps</p><a class="preview-card__link" href="./diagrams/11-cycle-4steps.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/12-three-cards.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">12 · Three cards</p><a class="preview-card__link" href="./diagrams/12-three-cards.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/13-big-numbers.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">13 · Big numbers</p><a class="preview-card__link" href="./diagrams/13-big-numbers.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/14-pyramid.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">14 · Pyramid</p><a class="preview-card__link" href="./diagrams/14-pyramid.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/15-matrix.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">15 · Matrix 2×2</p><a class="preview-card__link" href="./diagrams/15-matrix.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/16-chevrons.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">16 · Chevrons</p><a class="preview-card__link" href="./diagrams/16-chevrons.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/17-icon-head-4.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">17 · Icon-head 4</p><a class="preview-card__link" href="./diagrams/17-icon-head-4.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/18-icon-head-6.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">18 · Icon-head 6</p><a class="preview-card__link" href="./diagrams/18-icon-head-6.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/19-donut-progress.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">19 · Donut progress</p><a class="preview-card__link" href="./diagrams/19-donut-progress.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/20-donut-quads.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">20 · Donut quads</p><a class="preview-card__link" href="./diagrams/20-donut-quads.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/21-h-timeline.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">21 · H timeline</p><a class="preview-card__link" href="./diagrams/21-h-timeline.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/22-v-timeline.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">22 · V timeline</p><a class="preview-card__link" href="./diagrams/22-v-timeline.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/23-feedback-loop.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">23 · Feedback loop</p><a class="preview-card__link" href="./diagrams/23-feedback-loop.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/24-hero-statement.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">24 · Hero statement (dark)</p><a class="preview-card__link" href="./diagrams/24-hero-statement.html" target="_blank">Abrir →</a></div>
+    </div>
+
+    <div class="preview-card">
+      <div class="preview-card__frame"><iframe src="./diagrams/25-triggers.html" loading="lazy"></iframe></div>
+      <div class="preview-card__caption"><p class="preview-card__name">25 · Triggers (causa→efecto)</p><a class="preview-card__link" href="./diagrams/25-triggers.html" target="_blank">Abrir →</a></div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
