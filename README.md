@@ -7,7 +7,6 @@ Sistema de diseño completo para presentaciones, landings y comunicación visual
 ```
 instituto-webinar/
 ├── tokens.css              ← Fuente única de verdad: paleta, tipografía, componentes
-├── voice.md                ← Guía de voz y tono
 ├── preview.html            ← Catálogo visual de todas las plantillas y diagrams
 ├── README.md               ← Este archivo
 ├── assets/
@@ -98,7 +97,7 @@ En claude.ai/design, al crear un design system para Instituto Webinar:
 
 1. **Link code on GitHub:** apunta a este subfolder, ej: `https://github.com/humberto/design-systems/tree/main/instituto-webinar`
 2. **Add fonts, logos and assets:** sube manualmente los logos de `assets/logos/` (Claude Design no enlaza assets binarios desde GitHub, hay que subirlos).
-3. **Any other notes:** pega un resumen de `voice.md`.
+3. **Any other notes:** la voz y tono del cliente se gestiona desde las skills de texto de la agencia, no en este repo.
 
 ## Reglas no negociables del sistema
 
@@ -111,10 +110,6 @@ Acumuladas de iteraciones con el cliente — incumplirlas rompe la coherencia vi
 - **Iconos siempre estilo Lucide** (viewBox 24×24, stroke 2, line caps redondos).
 - **Minimalismo extremo**: si dudas entre meter algo o no, no lo metas. Whitespace > densidad.
 - **Jerarquía visual obligatoria**: nunca dos líneas con el mismo peso y tamaño en un divisor o callout. Una es la principal, otra el contexto.
-
-## Voz y tono
-
-Ver [voice.md](./voice.md) — incluye palabras recurrentes, estructuras tipo del copy del cliente, y checklist antes de publicar.
 
 ## Mantenimiento
 
