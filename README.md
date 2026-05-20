@@ -110,6 +110,8 @@ Acumuladas de iteraciones con el cliente — incumplirlas rompe la coherencia vi
 - **Iconos siempre estilo Lucide** (viewBox 24×24, stroke 2, line caps redondos).
 - **Minimalismo extremo**: si dudas entre meter algo o no, no lo metas. Whitespace > densidad.
 - **Jerarquía visual obligatoria**: nunca dos líneas con el mismo peso y tamaño en un divisor o callout. Una es la principal, otra el contexto.
+- **NUNCA usar eyebrow/kicker/texto sobre los headlines**. Los títulos abren la slide sin texto encima — la diapositiva empieza directamente por el h1. Mantiene la composición limpia que el cliente quiere.
+- **Peso del h1: 700** (no 800). El título lleva presencia pero no machaca.
 
 ## Mantenimiento
 
