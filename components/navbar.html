@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Instituto Webinar — Navbar</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <style>
+    /* ─────────────────  NAVBAR  ─────────────────
+       Coherente con web real de IW:
+       - Logo izquierda
+       - Links centro (NOSOTROS, MÉTODO KISS, CASOS DE ÉXITO, RECURSOS)
+       - Acceder ghost + EMPEZAR pill derecha
+       - Sticky on scroll
+       - Background blanco con sutil shadow
+    */
+
+    .iw-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #FFFFFF;
+      padding: 18px 64px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 56px;
+      align-items: center;
+      box-shadow: 0 1px 0 rgba(19, 29, 45, 0.06);
+    }
+
+    .iw-navbar__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--iw-font);
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--iw-dark);
+      text-decoration: none;
+    }
+    .iw-navbar__logo img { height: 40px; width: auto; display: block; }
+
+    .iw-navbar__links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      justify-content: center;
+    }
+    .iw-navbar__links a {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--iw-dark);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .iw-navbar__links a:hover { color: var(--iw-primary); }
+    .iw-navbar__links a.is-active { color: var(--iw-primary); }
+
+    .iw-navbar__actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .iw-navbar__acceder {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--iw-dark);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .iw-navbar__acceder:hover { color: var(--iw-primary); }
+
+    .iw-navbar__cta {
+      display: inline-flex;
+      align-items: center;
+      background: var(--iw-primary);
+      color: var(--iw-on-dark);
+      font-family: var(--iw-font);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .iw-navbar__cta:hover { background: var(--iw-primary-hover); }
+
+    /* Mobile: hamburger (representativo) */
+    .iw-navbar__hamburger {
+      display: none;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .iw-navbar { grid-template-columns: auto 1fr auto; padding: 14px 24px; }
+      .iw-navbar__links { display: none; }
+      .iw-navbar__hamburger { display: block; }
+    }
+
+    /* ─────────────────  Preview  ───────────────── */
+    body {
+      margin: 0;
+      background: #FAFAFA;
+      font-family: var(--iw-font);
+    }
+    .specimen-pad { padding: 60px; }
+    .specimen-pad h2 {
+      font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--iw-ink-muted); margin: 0 0 24px 0; font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar real -->
+  <nav class="iw-navbar">
+    <a href="#" class="iw-navbar__logo">
+      <img src="../assets/logos/logo-117.png" alt="Instituto Webinar">
+    </a>
+
+    <ul class="iw-navbar__links">
+      <li><a href="#" class="is-active">Nosotros</a></li>
+      <li><a href="#">Método KISS</a></li>
+      <li><a href="#">Casos de éxito</a></li>
+      <li><a href="#">Recursos</a></li>
+    </ul>
+
+    <div class="iw-navbar__actions">
+      <a href="#" class="iw-navbar__acceder">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="12" cy="10" r="3"/>
+          <path d="M7 20.66a8 8 0 0 1 10 0"/>
+        </svg>
+        Acceder
+      </a>
+      <a href="#" class="iw-navbar__cta">Empezar</a>
+    </div>
+  </nav>
+
+  <div class="specimen-pad">
+    <h2>Navbar — Notas de uso</h2>
+    <p style="max-width: 700px; color: var(--iw-ink-soft); line-height: 1.6;">
+      Sticky, background blanco, shadow muy sutil. Logo a la izquierda (lockup color logo-117).
+      4 links principales en centro (uppercase, peso 600).
+      A la derecha: "Acceder" ghost + "Empezar" pill brand.
+      En mobile (&lt;900px) los links se ocultan y aparece hamburger.
+    </p>
+  </div>
+
+</body>
+</html>

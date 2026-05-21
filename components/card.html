@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Instituto Webinar — Cards</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <style>
+    /* ─────────────────  CARDS  ─────────────────
+       Variantes coherentes con web real:
+       - Card light (sobre fondo claro)
+       - Card light con icono circular brand
+       - Card con media (foto arriba)
+       - Card dark (sobre navy)
+       - Card lavanda (background light brand)
+    */
+
+    .iw-card {
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: var(--iw-shadow-md);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .iw-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--iw-shadow-lg);
+    }
+    .iw-card__title {
+      font-family: var(--iw-font);
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--iw-dark);
+      margin: 0 0 12px 0;
+      line-height: 1.25;
+    }
+    .iw-card__desc {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--iw-ink-soft);
+      margin: 0;
+    }
+    .iw-card__desc strong { color: var(--iw-dark); font-weight: 700; }
+
+    /* Icono circular brand arriba */
+    .iw-card__icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--iw-light);
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      color: var(--iw-primary);
+    }
+    .iw-card__icon svg { width: 28px; height: 28px; }
+
+    /* Variante: card lavanda (background light brand al 50%) */
+    .iw-card--lavender {
+      background: rgba(215, 228, 255, 0.45);
+      box-shadow: none;
+    }
+    .iw-card--lavender:hover { box-shadow: var(--iw-shadow-md); }
+
+    /* Variante: card dark */
+    .iw-card--dark {
+      background: var(--iw-dark);
+      color: var(--iw-on-dark);
+    }
+    .iw-card--dark .iw-card__title { color: var(--iw-on-dark); }
+    .iw-card--dark .iw-card__desc { color: rgba(255, 255, 255, 0.7); }
+    .iw-card--dark .iw-card__icon {
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+    }
+
+    /* Variante: card con media arriba */
+    .iw-card--media {
+      padding: 0;
+      overflow: hidden;
+    }
+    .iw-card__media {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: var(--iw-light);
+      overflow: hidden;
+    }
+    .iw-card__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .iw-card--media .iw-card__body { padding: 28px 32px 32px; }
+
+    /* Numbered badge dark (visto en method-3steps) */
+    .iw-card__badge {
+      display: inline-grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--iw-dark);
+      color: var(--iw-on-dark);
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    /* ─────────────────  Preview  ───────────────── */
+    body {
+      padding: 60px;
+      background: #FAFAFA;
+      font-family: var(--iw-font);
+    }
+    .specimen-section { margin-bottom: 64px; }
+    .specimen-section h2 {
+      font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--iw-ink-muted); margin: 0 0 24px 0; font-weight: 700;
+    }
+    .specimen-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="specimen-section">
+    <h2>Card light con icono</h2>
+    <div class="specimen-grid">
+      <article class="iw-card">
+        <div class="iw-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <h3 class="iw-card__title">Posicionamiento como experto</h3>
+        <p class="iw-card__desc">Te conviertes en <strong>el referente</strong> de tu sector con anuncios diarios.</p>
+      </article>
+
+      <article class="iw-card">
+        <div class="iw-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3 class="iw-card__title">Alto margen de beneficio</h3>
+        <p class="iw-card__desc">Beneficio del <strong>70% como mínimo</strong> con nuestro método.</p>
+      </article>
+
+      <article class="iw-card">
+        <div class="iw-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+        </div>
+        <h3 class="iw-card__title">Ventas constantes</h3>
+        <p class="iw-card__desc">Sistema que <strong>genera solicitudes</strong> todos los días sin publicar.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="specimen-section">
+    <h2>Card lavanda (background light brand)</h2>
+    <div class="specimen-grid">
+      <article class="iw-card iw-card--lavender">
+        <h3 class="iw-card__title">Sin crear contenidos</h3>
+        <p class="iw-card__desc">No dependes de publicar a diario en redes sociales.</p>
+      </article>
+      <article class="iw-card iw-card--lavender">
+        <h3 class="iw-card__title">Sin lanzamientos</h3>
+        <p class="iw-card__desc">Olvídate de los embudos agotadores.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="specimen-section">
+    <h2>Card dark (sobre navy)</h2>
+    <div class="specimen-grid">
+      <article class="iw-card iw-card--dark">
+        <div class="iw-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+          </svg>
+        </div>
+        <h3 class="iw-card__title">Negocio autogestionable</h3>
+        <p class="iw-card__desc">3 métricas para gestionar el negocio con autonomía.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="specimen-section">
+    <h2>Card con badge numerado</h2>
+    <div class="specimen-grid">
+      <article class="iw-card">
+        <div class="iw-card__badge">1</div>
+        <h3 class="iw-card__title">Creas tu programa escalable</h3>
+        <p class="iw-card__desc">Convertimos tu conocimiento en una oferta que escala.</p>
+      </article>
+      <article class="iw-card">
+        <div class="iw-card__badge">2</div>
+        <h3 class="iw-card__title">Automatizas las ventas</h3>
+        <p class="iw-card__desc">No dependes de redes ni de lanzamientos.</p>
+      </article>
+      <article class="iw-card">
+        <div class="iw-card__badge">3</div>
+        <h3 class="iw-card__title">Delegas la operativa</h3>
+        <p class="iw-card__desc">Crea equipo y procesos para que el negocio funcione sin ti.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="specimen-section">
+    <h2>Card con media (foto arriba)</h2>
+    <div class="specimen-grid">
+      <article class="iw-card iw-card--media">
+        <div class="iw-card__media">
+          <!-- Reemplazar con: <img src="ruta-foto.jpg" alt="Caso de éxito"> -->
+        </div>
+        <div class="iw-card__body">
+          <h3 class="iw-card__title">Caso Sara Prieto</h3>
+          <p class="iw-card__desc">Vendió varios tickets de <strong>+2.000€</strong> en el primer módulo.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+</body>
+</html>

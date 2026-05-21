@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Instituto Webinar — Buttons</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <style>
+    /* ─────────────────  BUTTONS  ─────────────────
+       Variantes coherentes con la web real de IW:
+       - Primary pill (CTA principal "EMPEZAR")
+       - Secondary outline (acciones secundarias)
+       - Ghost (acciones terciarias)
+       - Dark pill (alternativa contrast)
+       - Link styled (inline)
+    */
+
+    .iw-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--iw-font);
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 9999px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+    .iw-btn:hover { transform: translateY(-1px); }
+    .iw-btn:active { transform: translateY(0); }
+    .iw-btn:focus-visible {
+      outline: 3px solid var(--iw-light);
+      outline-offset: 2px;
+    }
+
+    /* Tamaños */
+    .iw-btn--sm { padding: 10px 22px; font-size: 14px; }
+    .iw-btn--lg { padding: 18px 44px; font-size: 18px; }
+
+    /* Primary (CTA principal — el más usado) */
+    .iw-btn--primary {
+      background: var(--iw-primary);
+      color: var(--iw-on-dark);
+    }
+    .iw-btn--primary:hover {
+      background: var(--iw-primary-hover);
+      box-shadow: 0 8px 24px rgba(52, 117, 239, 0.25);
+    }
+
+    /* Secondary (outline navy) */
+    .iw-btn--secondary {
+      background: transparent;
+      color: var(--iw-dark);
+      border-color: var(--iw-dark);
+    }
+    .iw-btn--secondary:hover {
+      background: var(--iw-dark);
+      color: var(--iw-on-dark);
+    }
+
+    /* Ghost (link-like with padding) */
+    .iw-btn--ghost {
+      background: transparent;
+      color: var(--iw-dark);
+    }
+    .iw-btn--ghost:hover {
+      background: var(--iw-light);
+    }
+
+    /* Dark pill (contrast alternative) */
+    .iw-btn--dark {
+      background: var(--iw-dark);
+      color: var(--iw-on-dark);
+    }
+    .iw-btn--dark:hover {
+      background: #000000;
+    }
+
+    /* Link styled (no padding, underline) */
+    .iw-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--iw-primary);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .iw-link:hover { color: var(--iw-primary-hover); }
+
+    /* Disabled state */
+    .iw-btn:disabled,
+    .iw-btn--disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* ─────────────────  Preview de specimens  ───────────────── */
+    body { padding: 60px; background: #FAFAFA; }
+    .specimen-section { margin-bottom: 64px; }
+    .specimen-section h2 {
+      font-family: var(--iw-font);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--iw-ink-muted);
+      margin: 0 0 24px 0;
+    }
+    .specimen-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="specimen-section">
+    <h2>Primary — CTA principal</h2>
+    <div class="specimen-row">
+      <a href="#" class="iw-btn iw-btn--primary iw-btn--sm">Empezar</a>
+      <a href="#" class="iw-btn iw-btn--primary">Empezar</a>
+      <a href="#" class="iw-btn iw-btn--primary iw-btn--lg">Ver metodología</a>
+    </div>
+  </section>
+
+  <section class="specimen-section">
+    <h2>Secondary — outline</h2>
+    <div class="specimen-row">
+      <a href="#" class="iw-btn iw-btn--secondary iw-btn--sm">Más info</a>
+      <a href="#" class="iw-btn iw-btn--secondary">Más info</a>
+      <a href="#" class="iw-btn iw-btn--secondary iw-btn--lg">Más info</a>
+    </div>
+  </section>
+
+  <section class="specimen-section">
+    <h2>Ghost</h2>
+    <div class="specimen-row">
+      <a href="#" class="iw-btn iw-btn--ghost iw-btn--sm">Acceder</a>
+      <a href="#" class="iw-btn iw-btn--ghost">Acceder</a>
+      <a href="#" class="iw-btn iw-btn--ghost iw-btn--lg">Acceder</a>
+    </div>
+  </section>
+
+  <section class="specimen-section">
+    <h2>Dark pill</h2>
+    <div class="specimen-row">
+      <a href="#" class="iw-btn iw-btn--dark iw-btn--sm">Reservar</a>
+      <a href="#" class="iw-btn iw-btn--dark">Reservar</a>
+      <a href="#" class="iw-btn iw-btn--dark iw-btn--lg">Reservar</a>
+    </div>
+  </section>
+
+  <section class="specimen-section">
+    <h2>Link styled</h2>
+    <div class="specimen-row">
+      <a href="#" class="iw-link">Ver caso de éxito →</a>
+      <a href="#" class="iw-link">Leer más sobre el método →</a>
+    </div>
+  </section>
+
+  <section class="specimen-section">
+    <h2>Disabled</h2>
+    <div class="specimen-row">
+      <a href="#" class="iw-btn iw-btn--primary iw-btn--disabled">No disponible</a>
+      <a href="#" class="iw-btn iw-btn--secondary iw-btn--disabled">No disponible</a>
+    </div>
+  </section>
+
+</body>
+</html>

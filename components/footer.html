@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Instituto Webinar — Footer</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <style>
+    /* ─────────────────  FOOTER  ─────────────────
+       Footer dark con grid de links + legal + redes.
+       Coherente con la paleta navy del sistema.
+    */
+
+    .iw-footer {
+      background: var(--iw-dark);
+      color: var(--iw-on-dark);
+      padding: 72px 64px 32px;
+      font-family: var(--iw-font);
+    }
+
+    .iw-footer__grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, 1fr);
+      gap: 56px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .iw-footer__brand {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .iw-footer__logo {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--iw-on-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .iw-footer__tagline {
+      font-size: 15px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 320px;
+      margin: 0;
+    }
+
+    .iw-footer__col h4 {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--iw-primary);
+      font-weight: 700;
+      margin: 0 0 18px 0;
+    }
+    .iw-footer__col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .iw-footer__col a {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .iw-footer__col a:hover { color: var(--iw-on-dark); }
+
+    /* Bar inferior: copyright + redes */
+    .iw-footer__bottom {
+      max-width: 1400px;
+      margin: 56px auto 0;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .iw-footer__copy {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.45);
+      margin: 0;
+    }
+    .iw-footer__social {
+      display: flex;
+      gap: 14px;
+    }
+    .iw-footer__social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      display: grid;
+      place-items: center;
+      color: rgba(255, 255, 255, 0.65);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .iw-footer__social a:hover {
+      background: var(--iw-primary);
+      color: var(--iw-on-dark);
+    }
+    .iw-footer__social svg { width: 18px; height: 18px; }
+
+    @media (max-width: 900px) {
+      .iw-footer__grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    body { margin: 0; background: #FAFAFA; }
+  </style>
+</head>
+<body>
+
+  <footer class="iw-footer">
+    <div class="iw-footer__grid">
+
+      <div class="iw-footer__brand">
+        <span class="iw-footer__logo">instituto webinar</span>
+        <p class="iw-footer__tagline">Ayudamos a expertos a vivir muy bien de su conocimiento creando un negocio simple y escalable.</p>
+      </div>
+
+      <div class="iw-footer__col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Método KISS</a></li>
+          <li><a href="#">Casos de éxito</a></li>
+        </ul>
+      </div>
+
+      <div class="iw-footer__col">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Recursos gratuitos</a></li>
+          <li><a href="#">Newsletter</a></li>
+        </ul>
+      </div>
+
+      <div class="iw-footer__col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Aviso legal</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Cookies</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="iw-footer__bottom">
+      <p class="iw-footer__copy">© 2026 Instituto Webinar. Todos los derechos reservados.</p>
+      <div class="iw-footer__social">
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/>
+            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

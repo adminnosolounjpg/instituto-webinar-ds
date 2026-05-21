@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Instituto Webinar — Badges</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <style>
+    /* ─────────────────  BADGES  ─────────────────
+       Etiquetas pequeñas para marcar estado, categoría o destacar.
+       3 estilos × 4 colores semánticos.
+    */
+
+    .iw-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    /* ─── Variantes de estilo ─── */
+    .iw-badge--solid {
+      background: var(--iw-primary);
+      color: var(--iw-on-dark);
+    }
+    .iw-badge--soft {
+      background: var(--iw-light);
+      color: var(--iw-primary);
+    }
+    .iw-badge--outline {
+      background: transparent;
+      color: var(--iw-primary);
+      border-color: var(--iw-primary);
+    }
+
+    /* ─── Colores semánticos ─── */
+    .iw-badge--success.iw-badge--solid { background: #10B981; }
+    .iw-badge--success.iw-badge--soft { background: #D1FAE5; color: #065F46; }
+    .iw-badge--success.iw-badge--outline { color: #10B981; border-color: #10B981; }
+
+    .iw-badge--warning.iw-badge--solid { background: #F59E0B; }
+    .iw-badge--warning.iw-badge--soft { background: #FEF3C7; color: #92400E; }
+    .iw-badge--warning.iw-badge--outline { color: #F59E0B; border-color: #F59E0B; }
+
+    .iw-badge--danger.iw-badge--solid { background: #EF4444; }
+    .iw-badge--danger.iw-badge--soft { background: #FEE2E2; color: #991B1B; }
+    .iw-badge--danger.iw-badge--outline { color: #EF4444; border-color: #EF4444; }
+
+    .iw-badge--neutral.iw-badge--solid { background: var(--iw-dark); }
+    .iw-badge--neutral.iw-badge--soft { background: #F3F4F6; color: var(--iw-dark); }
+    .iw-badge--neutral.iw-badge--outline { color: var(--iw-dark); border-color: var(--iw-dark); }
+
+    /* Icono dentro */
+    .iw-badge__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    /* ─────────────────  Preview  ───────────────── */
+    body { padding: 60px; background: #FAFAFA; font-family: var(--iw-font); }
+    .specimen-section { margin-bottom: 48px; }
+    .specimen-section h2 {
+      font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--iw-ink-muted); margin: 0 0 20px 0; font-weight: 700;
+    }
+    .specimen-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .specimen-label {
+      font-size: 12px; color: var(--iw-ink-muted);
+      min-width: 70px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="specimen-section">
+    <h2>Brand</h2>
+    <div class="specimen-row">
+      <span class="specimen-label">Solid</span>
+      <span class="iw-badge iw-badge--solid">Nuevo</span>
+      <span class="iw-badge iw-badge--solid"><span class="iw-badge__dot"></span>Activo</span>
+      <span class="iw-badge iw-badge--solid">Premium</span>
+    </div>
+    <div class="specimen-row">
+      <span class="specimen-label">Soft</span>
+      <span class="iw-badge iw-badge--soft">Nuevo</span>
+      <span class="iw-badge iw-badge--soft">Premium</span>
+    </div>
+    <div class="specimen-row">
+      <span class="specimen-label">Outline</span>
+      <span class="iw-badge iw-badge--outline">Nuevo</span>
+      <span class="iw-badge iw-badge--outline">Premium</span>
+    </div>
+  </section>
+
+  <section class="specimen-section">
+    <h2>Success</h2>
+    <div class="specimen-row">
+      <span class="iw-badge iw-badge--success iw-badge--solid">Completado</span>
+      <span class="iw-badge iw-badge--success iw-badge--soft">Activo</span>
+      <span class="iw-badge iw-badge--success iw-badge--outline">Verificado</span>
+    </div>
+  </section>
+
+  <section class="specimen-section">
+    <h2>Warning</h2>
+    <div class="specimen-row">
+      <span class="iw-badge iw-badge--warning iw-badge--solid">Pendiente</span>
+      <span class="iw-badge iw-badge--warning iw-badge--soft">Atención</span>
+      <span class="iw-badge iw-badge--warning iw-badge--outline">Beta</span>
+    </div>
+  </section>
+
+  <section class="specimen-section">
+    <h2>Danger</h2>
+    <div class="specimen-row">
+      <span class="iw-badge iw-badge--danger iw-badge--solid">Error</span>
+      <span class="iw-badge iw-badge--danger iw-badge--soft">Caducado</span>
+      <span class="iw-badge iw-badge--danger iw-badge--outline">Crítico</span>
+    </div>
+  </section>
+
+  <section class="specimen-section">
+    <h2>Neutral</h2>
+    <div class="specimen-row">
+      <span class="iw-badge iw-badge--neutral iw-badge--solid">Default</span>
+      <span class="iw-badge iw-badge--neutral iw-badge--soft">Borrador</span>
+      <span class="iw-badge iw-badge--neutral iw-badge--outline">Archivado</span>
+    </div>
+  </section>
+
+</body>
+</html>

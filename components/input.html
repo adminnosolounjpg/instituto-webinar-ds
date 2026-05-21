@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Instituto Webinar — Inputs & Forms</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <style>
+    /* ─────────────────  INPUTS & FORMS  ─────────────────
+       Estilos para campos de formulario coherentes con el sistema.
+       Estados: default, focus, error, disabled.
+    */
+
+    .iw-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .iw-field__label {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--iw-dark);
+    }
+    .iw-field__label .req { color: var(--iw-primary); }
+
+    .iw-input,
+    .iw-textarea,
+    .iw-select {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--iw-dark);
+      background: #FFFFFF;
+      border: 1.5px solid #E5E7EB;
+      border-radius: 12px;
+      padding: 14px 18px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      width: 100%;
+    }
+    .iw-input::placeholder,
+    .iw-textarea::placeholder { color: var(--iw-ink-muted); }
+
+    .iw-input:focus,
+    .iw-textarea:focus,
+    .iw-select:focus {
+      outline: none;
+      border-color: var(--iw-primary);
+      box-shadow: 0 0 0 4px rgba(52, 117, 239, 0.12);
+    }
+
+    .iw-textarea {
+      min-height: 120px;
+      resize: vertical;
+      font-family: var(--iw-font);
+    }
+
+    .iw-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234B5563' stroke-width='2' stroke-linecap='round'><polyline points='6 9 12 15 18 9'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 18px center;
+      background-size: 18px;
+      padding-right: 48px;
+    }
+
+    .iw-field__hint {
+      font-size: 13px;
+      color: var(--iw-ink-muted);
+      margin: 0;
+    }
+    .iw-field__error {
+      font-size: 13px;
+      color: #EF4444;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Error state */
+    .iw-field--error .iw-input,
+    .iw-field--error .iw-textarea {
+      border-color: #EF4444;
+    }
+    .iw-field--error .iw-input:focus,
+    .iw-field--error .iw-textarea:focus {
+      box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.12);
+    }
+
+    /* Disabled state */
+    .iw-input:disabled,
+    .iw-textarea:disabled,
+    .iw-select:disabled {
+      background: #F9FAFB;
+      color: var(--iw-ink-muted);
+      cursor: not-allowed;
+    }
+
+    /* Checkbox y radio */
+    .iw-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-family: var(--iw-font);
+      font-size: 15px;
+      color: var(--iw-dark);
+      cursor: pointer;
+      margin-bottom: 12px;
+    }
+    .iw-check input[type="checkbox"],
+    .iw-check input[type="radio"] {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid #D1D5DB;
+      border-radius: 6px;
+      cursor: pointer;
+      position: relative;
+      margin-top: 2px;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+    .iw-check input[type="radio"] { border-radius: 50%; }
+    .iw-check input:checked {
+      background: var(--iw-primary);
+      border-color: var(--iw-primary);
+    }
+    .iw-check input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 5px; top: 1px;
+      width: 6px; height: 11px;
+      border: solid #FFFFFF;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+    .iw-check input[type="radio"]:checked::after {
+      content: '';
+      position: absolute;
+      left: 5px; top: 5px;
+      width: 8px; height: 8px;
+      background: #FFFFFF;
+      border-radius: 50%;
+    }
+
+    /* ─────────────────  Preview  ───────────────── */
+    body { padding: 60px; background: #FAFAFA; font-family: var(--iw-font); }
+    .specimen-section { margin-bottom: 48px; max-width: 480px; }
+    .specimen-section h2 {
+      font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--iw-ink-muted); margin: 0 0 20px 0; font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="specimen-section">
+    <h2>Inputs base</h2>
+    <div class="iw-field">
+      <label class="iw-field__label" for="i1">Nombre <span class="req">*</span></label>
+      <input class="iw-input" id="i1" type="text" placeholder="Cómo te llamas">
+      <p class="iw-field__hint">Lo usaremos para personalizar tu experiencia.</p>
+    </div>
+
+    <div class="iw-field">
+      <label class="iw-field__label" for="i2">Email</label>
+      <input class="iw-input" id="i2" type="email" placeholder="tu@email.com">
+    </div>
+
+    <div class="iw-field iw-field--error">
+      <label class="iw-field__label" for="i3">Teléfono</label>
+      <input class="iw-input" id="i3" type="tel" placeholder="600 000 000" value="abc">
+      <p class="iw-field__error">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        Introduce un número de teléfono válido.
+      </p>
+    </div>
+
+    <div class="iw-field">
+      <label class="iw-field__label" for="i4">Disabled</label>
+      <input class="iw-input" id="i4" type="text" value="No editable" disabled>
+    </div>
+  </section>
+
+  <section class="specimen-section">
+    <h2>Select</h2>
+    <div class="iw-field">
+      <label class="iw-field__label" for="s1">¿En qué punto estás?</label>
+      <select class="iw-select" id="s1">
+        <option>Empezando de 0</option>
+        <option>Ya tengo clientes pero sin sistema</option>
+        <option>Quiero escalar</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="specimen-section">
+    <h2>Textarea</h2>
+    <div class="iw-field">
+      <label class="iw-field__label" for="t1">Cuéntanos sobre tu negocio</label>
+      <textarea class="iw-textarea" id="t1" placeholder="A qué te dedicas, qué buscas..."></textarea>
+    </div>
+  </section>
+
+  <section class="specimen-section">
+    <h2>Checkboxes y radios</h2>
+    <label class="iw-check">
+      <input type="checkbox" checked>
+      <span>Acepto los términos y la política de privacidad</span>
+    </label>
+    <label class="iw-check">
+      <input type="checkbox">
+      <span>Quiero recibir la newsletter semanal</span>
+    </label>
+
+    <div style="height: 16px;"></div>
+
+    <label class="iw-check">
+      <input type="radio" name="exp" checked>
+      <span>Soy coach / consultor</span>
+    </label>
+    <label class="iw-check">
+      <input type="radio" name="exp">
+      <span>Soy formador / experto</span>
+    </label>
+    <label class="iw-check">
+      <input type="radio" name="exp">
+      <span>Otro perfil</span>
+    </label>
+  </section>
+
+</body>
+</html>

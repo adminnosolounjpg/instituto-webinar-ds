@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Instituto Webinar — Components Index</title>
+  <link rel="stylesheet" href="tokens.css">
+  <style>
+    body {
+      margin: 0;
+      background: #FAFAFA;
+      font-family: var(--iw-font);
+      color: var(--iw-dark);
+    }
+    .pc-header {
+      padding: 80px 60px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .pc-header h1 {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px 0;
+    }
+    .pc-header h1 .iw-hl { color: var(--iw-primary); }
+    .pc-header p {
+      font-size: 18px;
+      color: var(--iw-ink-soft);
+      margin: 0;
+      max-width: 700px;
+      line-height: 1.55;
+    }
+
+    .pc-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 60px 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .pc-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--iw-shadow-sm);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid rgba(19, 29, 45, 0.04);
+    }
+    .pc-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--iw-shadow-md);
+    }
+    .pc-card__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--iw-light);
+      display: grid;
+      place-items: center;
+      color: var(--iw-primary);
+      margin-bottom: 8px;
+    }
+    .pc-card__icon svg { width: 22px; height: 22px; }
+    .pc-card__title {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0;
+    }
+    .pc-card__desc {
+      font-size: 14px;
+      color: var(--iw-ink-soft);
+      margin: 0;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="pc-header">
+    <h1>Components <span class="iw-hl">Index</span></h1>
+    <p>Catálogo de componentes web del sistema. Cada uno es un archivo HTML standalone que muestra todas sus variantes en vivo.</p>
+  </header>
+
+  <div class="pc-grid">
+
+    <a class="pc-card" href="components/button.html">
+      <div class="pc-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="6" width="20" height="12" rx="6"/>
+          <circle cx="9" cy="12" r="2" fill="currentColor"/>
+        </svg>
+      </div>
+      <h3 class="pc-card__title">Button</h3>
+      <p class="pc-card__desc">Primary pill, Secondary outline, Ghost, Dark, Link styled. 3 tamaños cada uno.</p>
+    </a>
+
+    <a class="pc-card" href="components/card.html">
+      <div class="pc-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="3"/>
+          <line x1="3" y1="9" x2="21" y2="9"/>
+        </svg>
+      </div>
+      <h3 class="pc-card__title">Card</h3>
+      <p class="pc-card__desc">Light, lavender, dark, con icono brand, con badge numerado, con media.</p>
+    </a>
+
+    <a class="pc-card" href="components/navbar.html">
+      <div class="pc-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="6" rx="2"/>
+          <line x1="6" y1="7" x2="14" y2="7"/>
+        </svg>
+      </div>
+      <h3 class="pc-card__title">Navbar</h3>
+      <p class="pc-card__desc">Sticky, logo + links + CTA pill brand. Responsive con hamburger.</p>
+    </a>
+
+    <a class="pc-card" href="components/footer.html">
+      <div class="pc-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="14" width="20" height="6" rx="2"/>
+          <line x1="6" y1="17" x2="18" y2="17"/>
+        </svg>
+      </div>
+      <h3 class="pc-card__title">Footer</h3>
+      <p class="pc-card__desc">Dark con grid de links, copyright y redes sociales.</p>
+    </a>
+
+    <a class="pc-card" href="components/badge.html">
+      <div class="pc-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+          <line x1="7" y1="7" x2="7.01" y2="7"/>
+        </svg>
+      </div>
+      <h3 class="pc-card__title">Badge</h3>
+      <p class="pc-card__desc">Solid / Soft / Outline en brand, success, warning, danger, neutral.</p>
+    </a>
+
+    <a class="pc-card" href="components/alert.html">
+      <div class="pc-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+      </div>
+      <h3 class="pc-card__title">Alert</h3>
+      <p class="pc-card__desc">Info, success, warning, danger. Con icono Lucide + título + descripción.</p>
+    </a>
+
+    <a class="pc-card" href="components/input.html">
+      <div class="pc-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="6" width="20" height="12" rx="3"/>
+          <line x1="6" y1="12" x2="14" y2="12"/>
+        </svg>
+      </div>
+      <h3 class="pc-card__title">Input & Forms</h3>
+      <p class="pc-card__desc">Inputs, select, textarea, checkboxes, radios. Estados focus / error / disabled.</p>
+    </a>
+
+  </div>
+
+</body>
+</html>
