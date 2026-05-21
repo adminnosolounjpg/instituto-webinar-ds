@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Instituto Webinar — Process numbered con badge dark</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <script defer src="../lib/iw-interact.js"></script>
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .pn-slide {
+      height: 100%;
+      padding: 100px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 64px;
+    }
+
+    /* Header centrado */
+    .pn-header {
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .pn-title {
+      font-family: var(--iw-font);
+      font-weight: 700;
+      font-size: 60px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--iw-dark);
+      margin: 0 0 24px 0;
+    }
+    .pn-title .iw-hl {
+      color: var(--iw-primary);
+    }
+    .pn-sub {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 22px;
+      color: var(--iw-ink-soft);
+      margin: 0 0 24px 0;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .pn-sub strong {
+      color: var(--iw-dark);
+      font-weight: 700;
+    }
+
+    /* Sub-checks (Sin crear contenidos · Sin lanzamientos · Sin agencias) */
+    .pn-checks {
+      display: flex;
+      justify-content: center;
+      gap: 56px;
+      flex-wrap: wrap;
+    }
+    .pn-checks__item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--iw-font);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--iw-dark);
+    }
+    .pn-checks__icon {
+      width: 22px;
+      height: 22px;
+      color: var(--iw-primary);
+    }
+
+    /* Body: 3 cards con líneas punteadas conectoras */
+    .pn-body {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1500px;
+      margin: 0 auto;
+      width: 100%;
+      padding-top: 56px;
+    }
+
+    /* Línea punteada conectora absoluta detrás de las cards */
+    .pn-body::before {
+      content: '';
+      position: absolute;
+      top: 56px;
+      left: 16%;
+      right: 16%;
+      border-top: 3px dotted var(--iw-primary);
+      z-index: 0;
+    }
+
+    .pn-card {
+      position: relative;
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 80px 36px 40px;
+      text-align: center;
+      box-shadow: var(--iw-shadow-md);
+      z-index: 1;
+    }
+
+    /* Badge circular dark con número */
+    .pn-badge {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 80px;
+      background: var(--iw-dark);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--iw-shadow-md);
+    }
+    .pn-badge__num {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 36px;
+      line-height: 1;
+      color: var(--iw-on-dark);
+    }
+
+    .pn-card__title {
+      font-family: var(--iw-font);
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 1.2;
+      color: var(--iw-dark);
+      margin: 0 0 16px 0;
+    }
+    .pn-card__desc {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.55;
+      color: var(--iw-ink-soft);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="pn-slide" data-iw-diagram>
+
+      <header class="pn-header">
+        <h1 class="pn-title">Te acompañamos en tu camino como experto. <span class="iw-hl">De 0 a referente en tu sector.</span></h1>
+        <p class="pn-sub">Descubre cómo podemos ayudarte a <strong>crear y escalar un negocio que te genera estabilidad de ingresos, tiempo y libertad</strong> para vivir muy bien de tu conocimiento.</p>
+
+        <div class="pn-checks">
+          <span class="pn-checks__item">
+            <svg class="pn-checks__icon" viewBox="0 0 24 24" fill="var(--iw-primary)">
+              <circle cx="12" cy="12" r="12"/>
+              <path d="M7 12.5 L10.5 16 L17 9" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            Sin crear contenidos
+          </span>
+          <span class="pn-checks__item">
+            <svg class="pn-checks__icon" viewBox="0 0 24 24" fill="var(--iw-primary)">
+              <circle cx="12" cy="12" r="12"/>
+              <path d="M7 12.5 L10.5 16 L17 9" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            Sin lanzamientos agotadores
+          </span>
+          <span class="pn-checks__item">
+            <svg class="pn-checks__icon" viewBox="0 0 24 24" fill="var(--iw-primary)">
+              <circle cx="12" cy="12" r="12"/>
+              <path d="M7 12.5 L10.5 16 L17 9" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            Sin depender de agencias
+          </span>
+        </div>
+      </header>
+
+      <div class="pn-body" data-iw-stagger>
+
+        <article class="pn-card">
+          <div class="pn-badge"><span class="pn-badge__num">1</span></div>
+          <h3 class="pn-card__title">Creas tu programa escalable</h3>
+          <p class="pn-card__desc">Convertimos tu conocimiento en una oferta escalable que te permite dejar de cambiar tu tiempo por dinero.</p>
+        </article>
+
+        <article class="pn-card">
+          <div class="pn-badge"><span class="pn-badge__num">2</span></div>
+          <h3 class="pn-card__title">Automatizas las ventas</h3>
+          <p class="pn-card__desc">Automatizamos la captación de clientes para que ya no dependas de publicar contenidos, hacer lanzamientos ni agencias.</p>
+        </article>
+
+        <article class="pn-card">
+          <div class="pn-badge"><span class="pn-badge__num">3</span></div>
+          <h3 class="pn-card__title">Delegas la operativa</h3>
+          <p class="pn-card__desc">Te ayudamos a crear equipo, sistemas y procesos para que puedas delegar la entrega de tu programa y disfrutar.</p>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

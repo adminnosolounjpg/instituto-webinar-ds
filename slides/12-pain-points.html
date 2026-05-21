@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Instituto Webinar — Pain points con foto lateral</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Slide layout */
+    .pp-slide {
+      height: 100%;
+      padding: 90px 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 56px;
+    }
+
+    /* Header centrado */
+    .pp-header {
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .pp-title {
+      font-family: var(--iw-font);
+      font-weight: 700;
+      font-size: 60px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--iw-dark);
+      margin: 0 0 20px 0;
+    }
+    .pp-title .iw-hl {
+      color: var(--iw-primary);
+    }
+    .pp-sub {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 22px;
+      color: var(--iw-ink-soft);
+      margin: 0;
+    }
+    .pp-sub strong {
+      color: var(--iw-dark);
+      font-weight: 700;
+    }
+
+    /* Body: lista + foto lateral */
+    .pp-body {
+      display: grid;
+      grid-template-columns: 1fr 540px;
+      gap: 96px;
+      align-items: center;
+      max-width: 1500px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .pp-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      max-width: 620px;
+    }
+    .pp-item {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    /* Icono X circular brand (pain points = negativo) */
+    .pp-check {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .pp-item__title {
+      font-family: var(--iw-font);
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.25;
+      color: var(--iw-dark);
+      margin: 0 0 10px 0;
+    }
+    .pp-item__desc {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--iw-ink-soft);
+      margin: 0;
+    }
+    .pp-item__desc strong {
+      color: var(--iw-dark);
+      font-weight: 700;
+    }
+
+    /* Foto lateral */
+    .pp-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--iw-light);
+      box-shadow: var(--iw-shadow-md);
+    }
+    .pp-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="pp-slide">
+
+      <header class="pp-header">
+        <h1 class="pp-title">¿Te ocurre <span class="iw-hl">algo parecido?</span></h1>
+        <p class="pp-sub">Llevas tiempo tratando de vender tus <strong>sesiones, servicios o formaciones</strong> y sin embargo…</p>
+      </header>
+
+      <div class="pp-body">
+
+        <ul class="pp-list">
+
+          <li class="pp-item">
+            <svg class="pp-check" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="18" cy="18" r="18" fill="var(--iw-primary)"/>
+              <path d="M12 12 L24 24 M24 12 L12 24" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <h3 class="pp-item__title">Te cuesta captar clientes con estabilidad</h3>
+              <p class="pp-item__desc">
+                Dependes del <strong>boca a boca</strong> o de estrategias agotadoras como crear contenidos, mandar mensajes a desconocidos o hacer lanzamientos en directo.
+              </p>
+            </div>
+          </li>
+
+          <li class="pp-item">
+            <svg class="pp-check" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="18" cy="18" r="18" fill="var(--iw-primary)"/>
+              <path d="M12 12 L24 24 M24 12 L12 24" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <h3 class="pp-item__title">Cambias tu tiempo por dinero</h3>
+              <p class="pp-item__desc">
+                Cuando alguien se interesa por lo que haces le vendes una solución a medida y te da miedo especializarte porque <strong>piensas que te entrarán menos ventas</strong>.
+              </p>
+            </div>
+          </li>
+
+          <li class="pp-item">
+            <svg class="pp-check" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="18" cy="18" r="18" fill="var(--iw-primary)"/>
+              <path d="M12 12 L24 24 M24 12 L12 24" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <h3 class="pp-item__title">Te sientes abrumado por el marketing</h3>
+              <p class="pp-item__desc">
+                Decides emocionalmente o en base a lo que hacen los demás. Eso te lleva a pasarte el día tratando de <strong>adivinar qué debes arreglar</strong>.
+              </p>
+            </div>
+          </li>
+
+        </ul>
+
+        <div class="pp-photo">
+          <!-- Reemplazar con: <img src="ruta-foto.jpg" alt="Persona trabajando"> -->
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Instituto Webinar — Testimonial dark con quotes</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Slide wrapper centrado */
+    .td-slide {
+      height: 100%;
+      padding: 100px 160px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Card dark con quotes decorativos en esquinas */
+    .td-card {
+      background: var(--iw-dark);
+      border-radius: 36px;
+      padding: 96px 120px 80px;
+      max-width: 1480px;
+      width: 100%;
+      position: relative;
+      color: var(--iw-on-dark);
+      text-align: center;
+    }
+
+    /* Comillas decorativas brand (top-left + bottom-right invertida) */
+    .td-quote-decor {
+      position: absolute;
+      width: 72px;
+      height: 56px;
+      color: var(--iw-primary);
+    }
+    .td-quote-decor--top {
+      top: 56px;
+      left: 72px;
+    }
+    .td-quote-decor--bottom {
+      bottom: 56px;
+      right: 72px;
+      transform: rotate(180deg);
+    }
+
+    /* Foto circular arriba */
+    .td-photo {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      margin: 0 auto 28px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      border: 3px solid rgba(255, 255, 255, 0.1);
+    }
+    .td-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Nombre + cargo */
+    .td-name {
+      font-family: var(--iw-font);
+      font-weight: 700;
+      font-size: 26px;
+      letter-spacing: -0.01em;
+      color: var(--iw-on-dark);
+      margin: 0 0 6px 0;
+    }
+    .td-role {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.55);
+      margin: 0 0 44px 0;
+    }
+
+    /* Quote en italic */
+    .td-quote {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-style: italic;
+      font-size: 32px;
+      line-height: 1.5;
+      color: var(--iw-on-dark);
+      margin: 0 auto 36px;
+      max-width: 1080px;
+    }
+    .td-quote strong {
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    /* Link "Ver caso de éxito" */
+    .td-link {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--iw-primary);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="td-slide">
+      <article class="td-card">
+
+        <!-- Comilla decorativa top-left -->
+        <svg class="td-quote-decor td-quote-decor--top" viewBox="0 0 32 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M0 24V12C0 5.4 5.4 0 12 0V6C8.7 6 6 8.7 6 12H12V24H0ZM18 24V12C18 5.4 23.4 0 30 0V6C26.7 6 24 8.7 24 12H30V24H18Z"/>
+        </svg>
+
+        <!-- Foto circular -->
+        <div class="td-photo">
+          <!-- Reemplazar con: <img src="ruta-foto.jpg" alt="Sara Prieto"> -->
+        </div>
+
+        <h3 class="td-name">Sara Prieto</h3>
+        <p class="td-role">Coach de Liderazgo</p>
+
+        <p class="td-quote">
+          Llevo más de 30.000€ invertidos en mentores y nunca había recibido información tan práctica, clara y útil. <strong>Solo con lo aprendido en el primer módulo logré vender varios tickets de más de 2.000€.</strong>
+        </p>
+
+        <a href="#" class="td-link">Ver caso de éxito</a>
+
+        <!-- Comilla decorativa bottom-right (invertida) -->
+        <svg class="td-quote-decor td-quote-decor--bottom" viewBox="0 0 32 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M0 24V12C0 5.4 5.4 0 12 0V6C8.7 6 6 8.7 6 12H12V24H0ZM18 24V12C18 5.4 23.4 0 30 0V6C26.7 6 24 8.7 24 12H30V24H18Z"/>
+        </svg>
+
+      </article>
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

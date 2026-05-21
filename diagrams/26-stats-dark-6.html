@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Instituto Webinar — Stats dark grid 2x3</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <script defer src="../lib/iw-interact.js"></script>
+  <style>
+    /* Slide entera dark */
+    .sd-slide {
+      height: 100%;
+      background: var(--iw-dark);
+      padding: 100px 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 64px;
+      color: var(--iw-on-dark);
+    }
+
+    /* Header centrado */
+    .sd-header {
+      text-align: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .sd-title {
+      font-family: var(--iw-font);
+      font-weight: 700;
+      font-size: 60px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--iw-on-dark);
+      margin: 0 0 24px 0;
+    }
+    .sd-title .iw-hl {
+      color: var(--iw-primary);
+    }
+    .sd-sub {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 22px;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0;
+    }
+
+    /* Grid 2x3 */
+    .sd-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 56px 64px;
+      max-width: 1500px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .sd-cell {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .sd-cell__icon {
+      width: 44px;
+      height: 44px;
+      color: var(--iw-primary);
+      margin-top: 2px;
+    }
+    .sd-cell__icon svg {
+      width: 100%;
+      height: 100%;
+    }
+    .sd-cell__title {
+      font-family: var(--iw-font);
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.25;
+      color: var(--iw-on-dark);
+      margin: 0 0 10px 0;
+    }
+    .sd-cell__desc {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.65);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide">
+
+    <div class="sd-slide" data-iw-diagram>
+
+      <header class="sd-header">
+        <h1 class="sd-title">Esto es lo que lograron nuestros <span class="iw-hl">3.347 clientes</span> al implementar nuestra metodología</h1>
+      </header>
+
+      <div class="sd-grid" data-iw-stagger>
+
+        <div class="sd-cell">
+          <span class="sd-cell__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+              <path d="M12 15 17 10 7 0 4 3 14 13z"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="sd-cell__title">Posicionamiento como experto</h3>
+            <p class="sd-cell__desc">Ser visible a diario con anuncios te posiciona como autoridad y enseguida te conviertes en el experto que todos recomiendan.</p>
+          </div>
+        </div>
+
+        <div class="sd-cell">
+          <span class="sd-cell__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="sd-cell__title">Alto Margen de Beneficio</h3>
+            <p class="sd-cell__desc">A diferencia de otros modelos de negocios, nuestra metodología consigue un beneficio de un 70% como mínimo.</p>
+          </div>
+        </div>
+
+        <div class="sd-cell">
+          <span class="sd-cell__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 1 0 10 10"/>
+              <path d="M22 2 12 12"/>
+              <path d="M18 2h4v4"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="sd-cell__title">Negocio Autogestionable</h3>
+            <p class="sd-cell__desc">Te enseñamos a interpretar las únicas 3 métricas para gestionar tu negocio con autonomía aunque no sepas de marketing.</p>
+          </div>
+        </div>
+
+        <div class="sd-cell">
+          <span class="sd-cell__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="sd-cell__title">Clientes Cualificados</h3>
+            <p class="sd-cell__desc">Entienden el valor de lo que vendes y te compran sin rebajarte el precio ni usar técnicas agresivas de escasez o manipulación.</p>
+          </div>
+        </div>
+
+        <div class="sd-cell">
+          <span class="sd-cell__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"/>
+              <line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="sd-cell__title">Ventas Constantes</h3>
+            <p class="sd-cell__desc">Tienes un sistema que te da a conocer todos los días sin publicar contenidos y te genera solicitudes de personas que quieren contratarte.</p>
+          </div>
+        </div>
+
+        <div class="sd-cell">
+          <span class="sd-cell__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="sd-cell__title">Tranquilidad y Tiempo Libre</h3>
+            <p class="sd-cell__desc">Vender bajo un mismo precio y basar tu marketing en el cumplimiento de unas métricas te permite predecir tu facturación y ganar tranquilidad.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>

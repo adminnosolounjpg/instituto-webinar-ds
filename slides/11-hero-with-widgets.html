@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Instituto Webinar — Hero con widgets flotantes</title>
+  <link rel="stylesheet" href="../tokens.css">
+  <style>
+    .slide-bg {
+      background-image: url('../assets/bg/fondos-10.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Slide layout split: texto izquierda + media derecha */
+    .hw-slide {
+      height: 100%;
+      padding: 100px 120px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    /* Columna izquierda — copy */
+    .hw-headline {
+      font-family: var(--iw-font);
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--iw-dark);
+      margin: 0 0 32px 0;
+    }
+    .hw-headline .iw-hl {
+      color: var(--iw-primary);
+    }
+    .hw-sub {
+      font-family: var(--iw-font);
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 1.5;
+      color: var(--iw-ink-soft);
+      margin: 0 0 48px 0;
+      max-width: 620px;
+    }
+    .hw-sub strong {
+      color: var(--iw-dark);
+      font-weight: 700;
+    }
+    .hw-cta {
+      display: inline-block;
+      background: var(--iw-primary);
+      color: var(--iw-on-dark);
+      font-family: var(--iw-font);
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 44px;
+      border-radius: 9999px;
+    }
+
+    /* Columna derecha — foto + widgets flotantes */
+    .hw-media-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      max-height: 720px;
+    }
+    .hw-photo {
+      width: 100%;
+      height: 100%;
+      border-radius: 32px;
+      overflow: hidden;
+      background: var(--iw-light);
+    }
+    .hw-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Widget 1 — light card con barras de progreso (top-left flotante) */
+    .hw-widget-bars {
+      position: absolute;
+      top: 32px;
+      left: -64px;
+      width: 280px;
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 20px 22px;
+      box-shadow: var(--iw-shadow-lg);
+    }
+    .hw-widget-bars__title {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--iw-ink-muted);
+      margin: 0 0 14px 0;
+    }
+    .hw-widget-bars__row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .hw-widget-bars__bar {
+      height: 22px;
+      background: var(--iw-primary);
+      border-radius: 6px;
+      color: #FFFFFF;
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+    }
+    .hw-widget-bars__pct {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--iw-dark);
+    }
+
+    /* Widget 2 — dark card con número grande + sparkline (bottom-right flotante) */
+    .hw-widget-growth {
+      position: absolute;
+      bottom: 56px;
+      right: -64px;
+      width: 280px;
+      background: var(--iw-dark);
+      border-radius: 16px;
+      padding: 20px 22px;
+      box-shadow: var(--iw-shadow-lg);
+      color: var(--iw-on-dark);
+    }
+    .hw-widget-growth__label {
+      font-family: var(--iw-font);
+      font-weight: 600;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.55);
+      margin: 0 0 6px 0;
+    }
+    .hw-widget-growth__value {
+      font-family: var(--iw-font);
+      font-weight: 800;
+      font-size: 34px;
+      letter-spacing: -0.02em;
+      color: var(--iw-on-dark);
+      margin: 0 0 8px 0;
+    }
+    .hw-widget-growth__sparkline {
+      width: 100%;
+      height: 48px;
+    }
+  </style>
+</head>
+<body>
+<div class="iw-stage">
+  <section class="iw-slide slide-bg">
+
+    <div class="hw-slide">
+
+      <!-- Columna izquierda — copy -->
+      <div>
+        <h1 class="hw-headline">
+          Vive muy bien de tu conocimiento creando un <span class="iw-hl">programa escalable y vendiéndolo todos los días</span>
+        </h1>
+        <p class="hw-sub">
+          Ayudamos a expertos a <strong>crear un negocio simple sin depender de publicar contenidos en redes sociales</strong> o hacer lanzamientos en directo.
+        </p>
+        <a href="#" class="hw-cta">Ver metodología</a>
+      </div>
+
+      <!-- Columna derecha — foto con widgets flotantes -->
+      <div class="hw-media-wrap">
+        <div class="hw-photo">
+          <!-- Reemplazar con: <img src="ruta-foto.jpg" alt="Equipo trabajando"> -->
+        </div>
+
+        <!-- Widget 1: barras de progreso -->
+        <div class="hw-widget-bars">
+          <p class="hw-widget-bars__title">Mejoras en el negocio</p>
+          <div class="hw-widget-bars__row">
+            <div class="hw-widget-bars__bar" style="width: 66%;">Estandarización</div>
+            <span class="hw-widget-bars__pct">66%</span>
+          </div>
+          <div class="hw-widget-bars__row">
+            <div class="hw-widget-bars__bar" style="width: 99%;">Estabilidad</div>
+            <span class="hw-widget-bars__pct">99%</span>
+          </div>
+          <div class="hw-widget-bars__row">
+            <div class="hw-widget-bars__bar" style="width: 88%;">Escalabilidad</div>
+            <span class="hw-widget-bars__pct">88%</span>
+          </div>
+        </div>
+
+        <!-- Widget 2: crecimiento con sparkline -->
+        <div class="hw-widget-growth">
+          <p class="hw-widget-growth__label">Crecimiento</p>
+          <p class="hw-widget-growth__value">+42,22%</p>
+          <svg class="hw-widget-growth__sparkline" viewBox="0 0 240 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M0 36 L24 32 L48 38 L72 28 L96 22 L120 14 L144 22 L168 12 L192 18 L216 8 L240 4"
+                  stroke="var(--iw-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="120" cy="14" r="3" fill="var(--iw-primary)"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+</div>
+</body>
+</html>
